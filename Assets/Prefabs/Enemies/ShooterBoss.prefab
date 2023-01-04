@@ -4986,7 +4986,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1853904307429696814}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 555ceedf5e76fb747aecb39f8277c15d, type: 3}
+  m_Script: {fileID: 11500000, guid: 5809d595075951b418f5385bad4191e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _moveSpeed: 7
@@ -4994,7 +4994,8 @@ MonoBehaviour:
   _acceleration: 1.007
   _dumping: 0.05
   _isKnockbackable: 1
-  positionChangePeriod: 3
+  _moveBehaviour: {fileID: 11400000, guid: 54e002e50565dcf4caf083eda7899c61, type: 2}
+  _rotationBehaviour: {fileID: 11400000, guid: cc60d02cd62102d4cafe431d546194c3, type: 2}
 --- !u!114 &4077035155604199500
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5007,8 +5008,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ddb9d2203bed9b40ae53e657a29bfa6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultMaterial: {fileID: 2100000, guid: 43ed437d729858a409d13ceb4bbb253c, type: 2}
   highlightMaterial: {fileID: 2100000, guid: 14eea6d701a4ed942a1ec0f9f09a962d, type: 2}
+  defaultMaterial: {fileID: 2100000, guid: 43ed437d729858a409d13ceb4bbb253c, type: 2}
 --- !u!114 &8084295265816917832
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5021,11 +5022,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 593ab55b86ff76741ab517fdc24249cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spriteRenderers:
-  - {fileID: 4486923228286593412}
-  trailRenderers:
-  - {fileID: 1815596503483616914}
-  particleSystems: []
+  _spriteRenderers: []
+  _trailRenderers: []
+  _particleSystems: []
 --- !u!114 &4645226308830357363
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5052,9 +5051,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 330
-  partSystem: {fileID: 1131018567854326436}
-  _deathParticleSystem: {fileID: 2194430266272373911}
   _unlockPointPrefab: {fileID: 4731743649149909247, guid: 9fdab5920e893ee4498735e08e25a05e, type: 3}
+  _unlockPointsAmount: 0
+  _hurtParticleSystem: {fileID: 0}
+  _deathParticleSystem: {fileID: 2194430266272373911}
   OnDeath:
     m_PersistentCalls:
       m_Calls:

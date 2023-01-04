@@ -38,6 +38,7 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -8.75281, y: 0.35907146, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -4804,15 +4805,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 6441917552412668191}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: df11736f4896a1f43861215eee5e5d4a, type: 3}
+  m_Script: {fileID: 11500000, guid: 5809d595075951b418f5385bad4191e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 35
-  rotationSpeed: 135
-  acceleration: 1.06
-  dumping: 0.08
+  _moveSpeed: 0
+  _rotationSpeed: 0
+  _acceleration: 0
+  _dumping: 0
   _isKnockbackable: 1
-  positionChangePeriod: 4
+  _moveBehaviour: {fileID: 0}
+  _rotationBehaviour: {fileID: 0}
 --- !u!114 &8165886120132840358
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4855,8 +4857,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ddb9d2203bed9b40ae53e657a29bfa6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultMaterial: {fileID: 2100000, guid: 43ed437d729858a409d13ceb4bbb253c, type: 2}
   highlightMaterial: {fileID: 2100000, guid: 14eea6d701a4ed942a1ec0f9f09a962d, type: 2}
+  defaultMaterial: {fileID: 2100000, guid: 43ed437d729858a409d13ceb4bbb253c, type: 2}
 --- !u!199 &6935075736766555215
 ParticleSystemRenderer:
   serializedVersion: 6
@@ -4900,6 +4902,7 @@ ParticleSystemRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_RenderMode: 0
+  m_MeshDistribution: 0
   m_SortMode: 0
   m_MinParticleSize: 0
   m_MaxParticleSize: 0.5
@@ -4923,6 +4926,10 @@ ParticleSystemRenderer:
   m_Mesh1: {fileID: 0}
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
+  m_MeshWeighting: 1
+  m_MeshWeighting1: 1
+  m_MeshWeighting2: 1
+  m_MeshWeighting3: 1
   m_MaskInteraction: 0
 --- !u!114 &1410510800320755210
 MonoBehaviour:
@@ -4936,13 +4943,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 593ab55b86ff76741ab517fdc24249cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spriteRenderers:
-  - {fileID: 6462308782536642213}
-  trailRenderers: []
-  particleSystems: []
+  _spriteRenderers: []
+  _trailRenderers: []
+  _particleSystems: []
 --- !u!95 &5387797019030373692
 Animator:
-  serializedVersion: 3
+  serializedVersion: 4
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -4955,6 +4961,7 @@ Animator:
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1

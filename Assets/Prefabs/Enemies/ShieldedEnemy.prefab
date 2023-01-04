@@ -171,8 +171,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ddb9d2203bed9b40ae53e657a29bfa6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultMaterial: {fileID: 2100000, guid: 43ed437d729858a409d13ceb4bbb253c, type: 2}
   highlightMaterial: {fileID: 2100000, guid: 14eea6d701a4ed942a1ec0f9f09a962d, type: 2}
+  defaultMaterial: {fileID: 2100000, guid: 43ed437d729858a409d13ceb4bbb253c, type: 2}
 --- !u!114 &1435293847352167587
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -185,10 +185,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 593ab55b86ff76741ab517fdc24249cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spriteRenderers:
-  - {fileID: 3011325752112113165}
-  trailRenderers: []
-  particleSystems: []
+  _spriteRenderers: []
+  _trailRenderers: []
+  _particleSystems: []
 --- !u!114 &3690526797091230751
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -201,8 +200,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ddb9d2203bed9b40ae53e657a29bfa6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultMaterial: {fileID: 2100000, guid: 43ed437d729858a409d13ceb4bbb253c, type: 2}
   highlightMaterial: {fileID: 2100000, guid: 14eea6d701a4ed942a1ec0f9f09a962d, type: 2}
+  defaultMaterial: {fileID: 2100000, guid: 43ed437d729858a409d13ceb4bbb253c, type: 2}
 --- !u!50 &4142796362777688126
 Rigidbody2D:
   serializedVersion: 4
@@ -5172,7 +5171,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 25
-  partSystem: {fileID: 5677420919915413243}
+  _hurtParticleSystem: {fileID: 0}
 --- !u!114 &900424786649431094
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5182,14 +5181,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 4760951386187051345}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 12e8815751ec24e40a4f77bcc4f0aef7, type: 3}
+  m_Script: {fileID: 11500000, guid: 5809d595075951b418f5385bad4191e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 9
-  rotationSpeed: 180
-  acceleration: 1.01
-  dumping: 0.03
+  _moveSpeed: 0
+  _rotationSpeed: 0
+  _acceleration: 0
+  _dumping: 0
   _isKnockbackable: 1
+  _moveBehaviour: {fileID: 0}
+  _rotationBehaviour: {fileID: 0}
 --- !u!114 &7233582194875109389
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5202,10 +5203,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 593ab55b86ff76741ab517fdc24249cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spriteRenderers:
-  - {fileID: 1794039758778533433}
-  trailRenderers: []
-  particleSystems: []
+  _spriteRenderers: []
+  _trailRenderers: []
+  _particleSystems: []
 --- !u!114 &3444732758084151937
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5218,8 +5218,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ddb9d2203bed9b40ae53e657a29bfa6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultMaterial: {fileID: 2100000, guid: 43ed437d729858a409d13ceb4bbb253c, type: 2}
   highlightMaterial: {fileID: 2100000, guid: 14eea6d701a4ed942a1ec0f9f09a962d, type: 2}
+  defaultMaterial: {fileID: 2100000, guid: 43ed437d729858a409d13ceb4bbb253c, type: 2}
 --- !u!114 &1865454510143332163
 MonoBehaviour:
   m_ObjectHideFlags: 0

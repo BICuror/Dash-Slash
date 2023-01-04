@@ -3,7 +3,7 @@ using System.Collections;
 
 public sealed class GrubEnemyNavigation : MoveAgent
 {
-    [SerializeField] private float _positionChangePeriod;
+   /* [SerializeField] private float _positionChangePeriod;
 
     private Vector3 _targetMovePosition;
 
@@ -48,4 +48,5 @@ public sealed class GrubEnemyNavigation : MoveAgent
     }
 
     public override Vector3 GetTargetLookPosition() => _targetMovePosition;
+    */
 }

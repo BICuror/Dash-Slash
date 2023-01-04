@@ -231,7 +231,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8001155051199957164}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 12e8815751ec24e40a4f77bcc4f0aef7, type: 3}
+  m_Script: {fileID: 11500000, guid: 5809d595075951b418f5385bad4191e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _moveSpeed: 6
@@ -239,6 +239,8 @@ MonoBehaviour:
   _acceleration: 1.008
   _dumping: 0.01
   _isKnockbackable: 1
+  _moveBehaviour: {fileID: 11400000, guid: 58b3612ff1dc8b54fa442857d23cbbf9, type: 2}
+  _rotationBehaviour: {fileID: 11400000, guid: cc60d02cd62102d4cafe431d546194c3, type: 2}
 --- !u!114 &5631537869234386382
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -251,8 +253,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ddb9d2203bed9b40ae53e657a29bfa6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultMaterial: {fileID: 2100000, guid: 43ed437d729858a409d13ceb4bbb253c, type: 2}
   highlightMaterial: {fileID: 2100000, guid: 14eea6d701a4ed942a1ec0f9f09a962d, type: 2}
+  defaultMaterial: {fileID: 2100000, guid: 43ed437d729858a409d13ceb4bbb253c, type: 2}
 --- !u!114 &469108506886331082
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -265,11 +267,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 593ab55b86ff76741ab517fdc24249cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spriteRenderers:
-  - {fileID: 5257799607815619590}
-  trailRenderers:
-  - {fileID: 8034984011508245264}
-  particleSystems: []
+  _spriteRenderers: []
+  _trailRenderers: []
+  _particleSystems: []
 --- !u!114 &3946451465145453297
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -296,9 +296,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 330
-  partSystem: {fileID: 8719421192385425190}
-  _deathParticleSystem: {fileID: 7550173410978345237}
   _unlockPointPrefab: {fileID: 4731743649149909247, guid: 9fdab5920e893ee4498735e08e25a05e, type: 3}
+  _unlockPointsAmount: 0
+  _hurtParticleSystem: {fileID: 0}
+  _deathParticleSystem: {fileID: 7550173410978345237}
   OnDeath:
     m_PersistentCalls:
       m_Calls:

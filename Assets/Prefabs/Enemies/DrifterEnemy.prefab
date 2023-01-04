@@ -33,6 +33,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -8.814, y: 0.80896777, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1032664410736099127}
   - {fileID: 2850676742461182330}
@@ -90,7 +91,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 20
-  partSystem: {fileID: 2615094610974027868}
+  _hurtParticleSystem: {fileID: 0}
 --- !u!114 &7421401245505221265
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -100,14 +101,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 2923577786412957686}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 10823c3c511b95d49917b9bc8ccbc838, type: 3}
+  m_Script: {fileID: 11500000, guid: 5809d595075951b418f5385bad4191e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 12
-  rotationSpeed: 0.011
-  acceleration: 1.01
-  dumping: 0.03
+  _moveSpeed: 0
+  _rotationSpeed: 0
+  _acceleration: 0
+  _dumping: 0
   _isKnockbackable: 1
+  _moveBehaviour: {fileID: 0}
+  _rotationBehaviour: {fileID: 0}
 --- !u!114 &1072479173237792426
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -120,12 +123,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 593ab55b86ff76741ab517fdc24249cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spriteRenderers:
-  - {fileID: 8243094927444330654}
-  trailRenderers:
-  - {fileID: 1188595355701552672}
-  particleSystems:
-  - {fileID: 3330636506992468151}
+  _spriteRenderers: []
+  _trailRenderers: []
+  _particleSystems: []
 --- !u!114 &4994149760153232422
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -138,8 +138,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ddb9d2203bed9b40ae53e657a29bfa6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultMaterial: {fileID: 2100000, guid: 43ed437d729858a409d13ceb4bbb253c, type: 2}
   highlightMaterial: {fileID: 2100000, guid: 14eea6d701a4ed942a1ec0f9f09a962d, type: 2}
+  defaultMaterial: {fileID: 2100000, guid: 43ed437d729858a409d13ceb4bbb253c, type: 2}
 --- !u!114 &8314632755198988772
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -183,6 +183,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1554095686889553849}
   m_RootOrder: 0
@@ -241,7 +242,7 @@ SpriteRenderer:
   m_SpriteSortPoint: 0
 --- !u!95 &58025555938936710
 Animator:
-  serializedVersion: 3
+  serializedVersion: 4
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -254,6 +255,7 @@ Animator:
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
@@ -301,6 +303,7 @@ ParticleSystemRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_RenderMode: 0
+  m_MeshDistribution: 0
   m_SortMode: 0
   m_MinParticleSize: 0
   m_MaxParticleSize: 0.5
@@ -324,6 +327,10 @@ ParticleSystemRenderer:
   m_Mesh1: {fileID: 0}
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
+  m_MeshWeighting: 1
+  m_MeshWeighting1: 1
+  m_MeshWeighting2: 1
+  m_MeshWeighting3: 1
   m_MaskInteraction: 0
 --- !u!198 &3330636506992468151
 ParticleSystem:
@@ -5069,6 +5076,7 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1554095686889553849}
   m_RootOrder: 2
@@ -5116,6 +5124,7 @@ ParticleSystemRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_RenderMode: 0
+  m_MeshDistribution: 0
   m_SortMode: 0
   m_MinParticleSize: 0
   m_MaxParticleSize: 0.5
@@ -5139,6 +5148,10 @@ ParticleSystemRenderer:
   m_Mesh1: {fileID: 0}
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
+  m_MeshWeighting: 1
+  m_MeshWeighting1: 1
+  m_MeshWeighting2: 1
+  m_MeshWeighting3: 1
   m_MaskInteraction: 0
 --- !u!198 &2615094610974027868
 ParticleSystem:
@@ -9883,6 +9896,7 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0.183, y: -0.092, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1554095686889553849}
   m_RootOrder: 1

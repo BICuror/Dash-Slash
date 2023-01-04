@@ -38,16 +38,14 @@ public class MoveAgent : MonoBehaviour, IStunable, IKnockbackable
 
     private void FixedUpdate()
     {
-        MoveTowards(CalculateDirection(GetMovePosition()));
+        Vector3 targetPosition = _moveBehaviour.GetPosition(transform);
 
-        RotateTowards(CalculateDirection(GetLookPosition()));
+        MoveTowards(CalculateDirection(targetPosition));
+
+        RotateTowards(CalculateDirection(_rotationBehaviour.GetRotationPosition(targetPosition)));
     }
     
-    private virtual Vector2 CalculateDirection(Vector3 targetPosition) => (targetPosition - transform.position).normalized;
-    
-    private Vector3 GetMovePosition() => _moveBehaviour.GetPosition();
-
-    private Vector3 GetLookPosition() => _rotationBehaviour.GetRotationPosition();
+    private Vector2 CalculateDirection(Vector3 targetPosition) => (targetPosition - transform.position).normalized;
 
     private void MoveTowards(Vector2 direction)
     {

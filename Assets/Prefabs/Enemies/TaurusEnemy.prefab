@@ -37,6 +37,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.017, y: 1.598, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7542568722430372508}
   - {fileID: 4201020166030952721}
@@ -4819,15 +4820,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 1988322148908078509}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 555ceedf5e76fb747aecb39f8277c15d, type: 3}
+  m_Script: {fileID: 11500000, guid: 5809d595075951b418f5385bad4191e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 2
-  rotationSpeed: 200
-  acceleration: 1
-  dumping: 0.06
+  _moveSpeed: 0
+  _rotationSpeed: 0
+  _acceleration: 0
+  _dumping: 0
   _isKnockbackable: 0
-  positionChangePeriod: 3
+  _moveBehaviour: {fileID: 0}
+  _rotationBehaviour: {fileID: 0}
 --- !u!114 &1988322148908078508
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4841,7 +4843,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 30
-  partSystem: {fileID: 9038815026947104702}
+  _hurtParticleSystem: {fileID: 0}
 --- !u!199 &3886114236364012297
 ParticleSystemRenderer:
   serializedVersion: 6
@@ -4885,6 +4887,7 @@ ParticleSystemRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_RenderMode: 0
+  m_MeshDistribution: 0
   m_SortMode: 0
   m_MinParticleSize: 0
   m_MaxParticleSize: 0.5
@@ -4908,6 +4911,10 @@ ParticleSystemRenderer:
   m_Mesh1: {fileID: 0}
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
+  m_MeshWeighting: 1
+  m_MeshWeighting1: 1
+  m_MeshWeighting2: 1
+  m_MeshWeighting3: 1
   m_MaskInteraction: 0
 --- !u!114 &5898710925411931458
 MonoBehaviour:
@@ -4938,10 +4945,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 593ab55b86ff76741ab517fdc24249cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spriteRenderers:
-  - {fileID: 1396247721582211372}
-  trailRenderers:
-  - {fileID: 6258682512374678334}
+  _spriteRenderers: []
+  _trailRenderers: []
+  _particleSystems: []
 --- !u!114 &5279494364192321707
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4954,8 +4960,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ddb9d2203bed9b40ae53e657a29bfa6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultMaterial: {fileID: 2100000, guid: 43ed437d729858a409d13ceb4bbb253c, type: 2}
   highlightMaterial: {fileID: 2100000, guid: 14eea6d701a4ed942a1ec0f9f09a962d, type: 2}
+  defaultMaterial: {fileID: 2100000, guid: 43ed437d729858a409d13ceb4bbb253c, type: 2}
 --- !u!114 &-4490073112444729630
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4996,6 +5002,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2779868032991516130}
   m_RootOrder: 1
@@ -5136,6 +5143,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2779868032991516130}
   m_RootOrder: 0
@@ -5194,7 +5202,7 @@ SpriteRenderer:
   m_SpriteSortPoint: 0
 --- !u!95 &4272226422085982580
 Animator:
-  serializedVersion: 3
+  serializedVersion: 4
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -5207,6 +5215,7 @@ Animator:
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
