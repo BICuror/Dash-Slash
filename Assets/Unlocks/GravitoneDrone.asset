@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb6f74834b001dc48aea39ac7ef043e5, type: 3}
+  m_Name: GravitoneDrone
+  m_EditorClassIdentifier: 
+  _unlockableKey: GravitoneDrone
+  Price: 10
+  Drone: {fileID: 1219967766506767294, guid: 7ee600b7f4ced95488b2cf9e316cdd3d, type: 3}

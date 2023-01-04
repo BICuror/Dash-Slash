@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0037fa0d3643adc4e9d5b40f2ccd9185, type: 3}
+  m_Name: FlagPerkData
+  m_EditorClassIdentifier: 
+  scriptName: FlagPerk
+  perkType: 3
+  icon: {fileID: 9151725625850188775, guid: 189d5a69ebac0df49bb98700e7503448, type: 3}
+  perkName: Flagman
+  isUpgradable: 1
+  isMultiplyable: 0
+  perkObject: {fileID: 4339134938226543042, guid: ae350146ee584b640bab54b16a3b3b81, type: 3}

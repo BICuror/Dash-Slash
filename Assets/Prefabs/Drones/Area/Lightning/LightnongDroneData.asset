@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39571323bd55ffe4d9971c85e8203af2, type: 3}
+  m_Name: LightnongDroneData
+  m_EditorClassIdentifier: 
+  name: Lightning
+  type: 2
+  description: Strikes enemies with shoking litning
+  presentationData: {fileID: 11400000, guid: b7d4f1edb19cd364188590ed22d9757d, type: 2}
+  upgradesDescription:
+  - Hits 4 enemies at once
+  - Fire rate and damage increase
+  - Shock duration increase
+  - Hits 5 enemies at once

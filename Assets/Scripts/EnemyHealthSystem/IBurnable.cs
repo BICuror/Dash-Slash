@@ -1,0 +1,4 @@
+interface IBurnable
+{
+    void SetOnFire();
+}

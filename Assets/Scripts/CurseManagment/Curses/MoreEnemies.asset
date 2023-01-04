@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3221e22585d1c3a428c764f2b94c0dd3, type: 3}
+  m_Name: MoreEnemies
+  m_EditorClassIdentifier: 
+  icon: {fileID: 21300000, guid: d9f310b8c1ff501409fd8690e2d0e57a, type: 3}
+  curseName: More eneimes
+  scriptName: MoreEnemiesCurse

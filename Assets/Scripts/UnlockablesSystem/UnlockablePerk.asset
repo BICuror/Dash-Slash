@@ -1,0 +1,16 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ae018db448b1444b94096a949c2912e, type: 3}
+  m_Name: UnlockablePerk
+  m_EditorClassIdentifier: 
+  _unlockableKey: Key
+  Perk: {fileID: 11400000, guid: aa95d61822058e4468ef875f0f9c7e5a, type: 2}
