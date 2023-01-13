@@ -80,7 +80,7 @@ public class EnemySpawner : MonoBehaviour
 
             StartCoroutine(WatiToSpawnEnemy(spawnedEnemies, spawnPosition, enemyToSpawn));
 
-            leftHPamount -= enemyToSpawn.GetComponent<EnemyHealth>().maxHP;
+            leftHPamount -= enemyToSpawn.GetComponent<EnemyHealth>().MaxHealth;
             
             spawnedEnemies++;
 
@@ -105,11 +105,11 @@ public class EnemySpawner : MonoBehaviour
 
         EnemyHealth health = curentEnemy.GetComponent<EnemyHealth>();
 
-        health.DeathEvent += Main.enemyList.RemoveEnemyFromList;
+        health.DeathEvent.AddListener(Main.enemyList.RemoveEnemyFromList);
 
-        health.SetMaxHealth(progression.GetEnemyHealth(Main.arenaManager.GetCurrentWave(), health.maxHP));
+        health.MultiplyMaxHelath(progression.GetEnemyHealth(Main.arenaManager.GetCurrentWave()));
 
-        health.DeathEvent += _ => CheckIfLast();
+        health.DeathEvent.AddListener(CheckIfLast);
 
         Main.enemyList.AddEnemy(curentEnemy.transform);
     }
@@ -153,7 +153,7 @@ public class EnemySpawner : MonoBehaviour
         PrepareNextGroup();
     }
 
-    public void CheckIfLast()
+    public void CheckIfLast(Transform enemy)
     {
         if (Main.enemyList.CheckIfEmpty())
         {
@@ -174,7 +174,7 @@ public class EnemySpawner : MonoBehaviour
 
         StopAllCoroutines();
 
-        CheckIfLast();
+        CheckIfLast(null);
     }
 
     public void ChangeGroupSize(int amount)

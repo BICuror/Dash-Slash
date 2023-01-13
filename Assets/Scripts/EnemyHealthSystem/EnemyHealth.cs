@@ -1,84 +1,74 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
+
+[RequireComponent(typeof(EnemyStatus))]
 
 public class EnemyHealth : MonoBehaviour, IDamagable
 {
     [Header("MainStats")]
+    [SerializeField] private float _maxHealth;
+    public float MaxHealth { get => _maxHealth; set {_maxHealth = value;} }
 
-    [SerializeField] protected float maxHealth; 
-    public float maxHP { get {return maxHealth;} set {maxHealth = value;} }
-
-    protected float currentHealth;
+    private float _currentHealth;
     
-    protected EnemyStatus statusManager;
+    private EnemyStatus _statusManager;
+    
+    [Header("Events")]
+    public UnityEvent HitEvent; 
+    public UnityEvent<Transform> DeathEvent; 
+    
+    private void Awake() => _statusManager = GetComponent<EnemyStatus>();
 
-    public delegate void EventHandler(Transform enemyTransform); 
-    public event EventHandler DeathEvent;
-
-    private void Awake() 
-    {
-        currentHealth = maxHealth;
-
-        statusManager = GetComponent<EnemyStatus>();
-    }
-
-    public void SetMaxHealth(float health)
-    {
-        maxHealth = health;
-
-        currentHealth = health;
-    }
-
+    public float GetCurrentHealth() => _currentHealth / _maxHealth;
+    
     public void MultiplyMaxHelath(float multiplier)
     {
-        maxHealth *= multiplier;
+        _maxHealth *= multiplier;
 
-        currentHealth = maxHealth;
+        _currentHealth = _maxHealth;
+    }
+    
+    public void GetPercentHurt(float percent) => GetHurt(_maxHealth * percent);
+
+    public void GetHurt(float damage) 
+    {
+        HitEvent.Invoke();
+
+        damage = MultyplyDamageByStatus(damage);
+
+        if (AntioneshotCheck(damage))
+        {
+            _currentHealth = 1f; 
+        }
+        else 
+        {
+            _currentHealth -= damage;
+            
+            if (_currentHealth <= 0f) 
+            {
+                Die();
+            }
+        }
+    }
+    
+    private bool AntioneshotCheck(float damage)
+    {
+        return (damage >= _maxHealth && _currentHealth == _maxHealth);
     }
 
-    public virtual void GetHurt(float damage) {}
-
-    protected bool AntioneshotCheck(float damage)
+    private float MultyplyDamageByStatus(float damage)
     {
-        return (damage >= maxHealth && currentHealth == maxHealth);
-    }
-
-    protected float MultyplyDamageByStatus(float damage)
-    {
-        if (statusManager.IsOnFire() == true) damage += damage * Main.combatStats.additionalDamageToOnFireEnemies;
-        if (statusManager.IsShocked() == true) damage += damage * Main.combatStats.additionalDamageToShokedEnemies;
+        if (_statusManager.IsOnFire() == true) damage += damage * Main.combatStats.additionalDamageToOnFireEnemies;
+        if (_statusManager.IsShocked() == true) damage += damage * Main.combatStats.additionalDamageToShokedEnemies;
 
         return damage;
     }
 
-    public virtual void GetPercentHurt(float percent)
+    public void Die() 
     {
-        GetHurt(maxHealth * percent);
+        Destroy(gameObject);
     }
 
-    public virtual void Die() 
-    {
-        DestroyEnemy(); 
-
-        RemoveFromList();
-    }
-
-    protected void DestroyEnemy()
-    {
-        RemoveFromList();
-
-        Destroy(gameObject);    
-    }
-
-    protected void RemoveFromList()
-    {
-        if (DeathEvent != null)
-        {
-            DeathEvent.Invoke(transform);
-
-            DeathEvent = null;
-        } 
-    }
+    private void OnDestroy() => DeathEvent.Invoke(transform);
 }
  

@@ -1,55 +1,38 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class Taurus : EnemyTaskManager
+public sealed class Taurus : MonoBehaviour
 {
-    [Header("Links")]
-    [SerializeField] private ParticleSystem partSystem;
+    [SerializeField] private ParticleSystem _dumpParticleSystem;
 
-    [SerializeField] private Animator anim;
+    private DashingModule _dashingModule;
 
-    private DashingModule dashingModule;
+    private MoveAgent _moveAgent;
 
-    private MoveAgent moveAgent;
-
-    private void Awake()
+    private void Start()
     {
-        moveAgent = GetComponent<MoveAgent>();
+        _moveAgent = GetComponent<MoveAgent>();
 
-        dashingModule = GetComponent<DashingModule>();
+        _dashingModule = GetComponent<DashingModule>();
     }
-
-    protected override void PreperateTask()
+    
+    public void Dash()
     {
-        partSystem.Play();
-
-        anim.Play("EnemyPrepeare");
-    }
-
-    protected override void DoTask()
-    {
-        moveAgent.enabled = false;
+        _moveAgent.enabled = false;
 
         Vector3 direction = (Main.playerTransform.position - transform.position).normalized;
 
-        dashingModule.StartDash(direction);
-    }
-
-    protected override void StopTask()
-    {
-        dashingModule.StopDash();
-
-        moveAgent.enabled = true;
+        _dashingModule.StartDash(direction);
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("Borders"))
         {
-            StopTask();
+            _dashingModule.StopDash();
 
-            partSystem.Play();
+            _moveAgent.enabled = true;
+
+            _dumpParticleSystem.Play();
         }
     }
 }

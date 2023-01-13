@@ -1,68 +1,52 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-public sealed class BossEnemyHealth : EnemyHealth
+[RequireComponent(typeof(EnemyStatus))]
+
+public sealed class BossEnemyHealth : MonoBehaviour, IDamagable
 {
-    [Header("UnlockSettings")]
+    [Header("HealthSettings")]
 
-    [SerializeField] private GameObject _unlockPointPrefab;
+    [SerializeField] private float _maxHealth;
 
-    [SerializeField] private int _unlockPointsAmount;
+    private float _currentHealth;
 
-    [Header("Links")]
+    private EnemyStatus _statusManager;
 
-    [SerializeField] private ParticleSystem _hurtParticleSystem;
-
-    [SerializeField] private ParticleSystem _deathParticleSystem;
-
-    [SerializeField] private UnityEvent OnDeath;
-
-    private bool _died;
+    [Header("Events")]
+    public UnityEvent OnHit; 
+    public UnityEvent OnDeath;  
 
     private void OnEnable() => Main.s_bossHealthBar.ActivateHealthBar();
 
-    private void OnDestroy() 
-    {
-        Main.s_bossHealthBar.DeactivateHealthBar();
-        
-        Main.arenaManager.StopArenaBattle();
-    } 
+    private void OnDisable() => Main.s_bossHealthBar.DeactivateHealthBar();
 
-    public override void GetPercentHurt(float percent) => GetHurt(maxHealth * percent * 0.1f);
+    public void GetPercentHurt(float percent) => GetHurt(_maxHealth * percent);
 
-    public override void GetHurt(float damage)
+    public void GetHurt(float damage) 
     {
-        _hurtParticleSystem.Play();
+        OnHit.Invoke();
 
         damage = MultyplyDamageByStatus(damage);
 
-        currentHealth -= damage;
-
-        Main.s_bossHealthBar.UpdateHealthBar(currentHealth / maxHealth);
+        _currentHealth -= damage;
             
-        if (currentHealth <= 0f) 
+        if (_currentHealth <= 0f) 
         {
-            if (_died == false) Die();
+            Die();
         }
-        else statusManager.HighlightEnemy();   
+    }
+
+    private float MultyplyDamageByStatus(float damage)
+    {
+        if (_statusManager.IsOnFire() == true) damage += damage * Main.combatStats.additionalDamageToOnFireEnemies;
+        if (_statusManager.IsShocked() == true) damage += damage * Main.combatStats.additionalDamageToShokedEnemies;
+
+        return damage;
     }
 
     private void Die()
     {
-        _died = true;
-        
-        _deathParticleSystem.Play();
-
         OnDeath.Invoke();
-
-        CreatePoints();
-    }
-
-    private void CreatePoints()
-    {
-        for (int i = 0; i < _unlockPointsAmount; i++)
-        {
-            Instantiate(_unlockPointPrefab, transform.position, Quaternion.Euler(0f, 0f, Random.Range(0f, 360f)));
-        }
     }
 }

@@ -7,7 +7,7 @@ public class DashingModule : MonoBehaviour
     [Header("DashSettings")]
     [SerializeField] private float dashDuration;
 
-    [Constant] [SerializeField] private float dashSpeed;
+    [SerializeField] private float dashSpeed;
 
     protected Rigidbody2D rb;
 

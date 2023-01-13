@@ -1,20 +1,13 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class Spawner : EnemyTaskManager
+public class Spawner : MonoBehaviour
 {
-    private SpawnerModule spawnerModule;
+    private SpawnerModule _spawnerModule;
 
-    private void Awake()
+    private void Awake() => _spawnerModule = GetComponent<SpawnerModule>();
+    
+    public void SpawnEnemy()
     {
-        spawnerModule = GetComponent<SpawnerModule>();
-    }
-
-    protected override void PreperateTask() {}
-
-    protected override void DoTask()
-    {
-        spawnerModule.SpawnEnemy(transform.position);
+        _spawnerModule.SpawnEnemy(transform.position);
     }  
 }

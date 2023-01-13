@@ -734,48 +734,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ebd728665e73e6f42924c887f688d270, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  slowmoCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0.9990653
-      inSlope: -2.4472618
-      outSlope: -2.4472618
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0.045833334
-    - serializedVersion: 3
-      time: 0.21390533
-      value: 0.004254043
-      inSlope: 0.031911373
-      outSlope: 0.031911373
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 0.7450578
-      value: 0.20816292
-      inSlope: 1.0951505
-      outSlope: 1.0951505
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.27531785
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 1
-      value: 1
-      inSlope: 2.5704749
-      outSlope: 2.5704749
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.04583335
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
 --- !u!1 &108711742
 GameObject:
   m_ObjectHideFlags: 0
@@ -5799,7 +5757,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -50}
+  m_AnchoredPosition: {x: 0, y: -50.00003}
   m_SizeDelta: {x: 0, y: -50}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &139787835
@@ -6131,18 +6089,6 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 133486675}
-        m_TargetAssemblyTypeName: SoundManager, Assembly-CSharp
-        m_MethodName: PlaySfx
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 8300000, guid: d3f5c2df21d35ae4ea935d7d1ca6d96d, type: 3}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -8128,26 +8074,35 @@ MonoBehaviour:
       - serializedVersion: 3
         time: 0
         value: 0
-        inSlope: 1
-        outSlope: 1
+        inSlope: -3.7503612
+        outSlope: -3.7503612
         tangentMode: 34
         weightedMode: 0
         inWeight: 0
-        outWeight: 0
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 0.045046926
+        value: -0.16894224
+        inSlope: 0.5193698
+        outSlope: 0.5193698
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
       - serializedVersion: 3
         time: 1
-        value: 1
-        inSlope: 1
-        outSlope: 1
-        tangentMode: 34
+        value: 0
+        inSlope: -0.46705365
+        outSlope: -0.46705365
+        tangentMode: 0
         weightedMode: 0
-        inWeight: 0
+        inWeight: 0.31648013
         outWeight: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    Strength: 0
-    Duration: 0
+    Strength: 1
+    Duration: 1
   _bigScreenshakeSettings:
     Curve:
       serializedVersion: 2
@@ -8162,19 +8117,46 @@ MonoBehaviour:
         inWeight: 0
         outWeight: 0
       - serializedVersion: 3
-        time: 1
-        value: 1
-        inSlope: 2
-        outSlope: 2
+        time: 0.44129246
+        value: -0.25923443
+        inSlope: 3.8522704
+        outSlope: 3.8522704
         tangentMode: 0
         weightedMode: 0
-        inWeight: 0
+        inWeight: 0.33333334
+        outWeight: 0.15984401
+      - serializedVersion: 3
+        time: 0.50617105
+        value: 0.4460583
+        inSlope: -2.2325897
+        outSlope: -2.2325897
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.35500962
+      - serializedVersion: 3
+        time: 0.7264318
+        value: -0.2549441
+        inSlope: -0.63376164
+        outSlope: -0.63376164
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 1
+        value: 0
+        inSlope: -0.68505657
+        outSlope: -0.68505657
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.2544968
         outWeight: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    Strength: 0
-    Duration: 0
+    Strength: 1
+    Duration: 1
 --- !u!114 &519420030
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9065,11 +9047,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 610e35e47e5665948a60a37520d44fa1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  randomAttackPeriod: 0.3
-  attackPeriod: 0.4
-  timeAfterWarning: 0
-  partSystem: {fileID: 607472719}
-  anim: {fileID: 607472718}
 --- !u!114 &607472717
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19428,12 +19405,11 @@ MonoBehaviour:
   spawner: {fileID: 687216858}
   easyEnemies:
   - {fileID: 6189295291343888064, guid: bcf26edbd575c844ab96bca6a4d11c3a, type: 3}
-  - {fileID: 6441917552412668191, guid: 253cc85fb9e039243bd440ec33b0f98d, type: 3}
   - {fileID: 5752888505519886052, guid: 864ca82975f5d804c8d58ccdfc01edf6, type: 3}
+  - {fileID: 2923577786412957686, guid: 699494dbb3e33a24eb1b2a7ef106518c, type: 3}
   mediumEnemies:
   - {fileID: 5752888505519886052, guid: 864ca82975f5d804c8d58ccdfc01edf6, type: 3}
   - {fileID: 4105689339622157090, guid: 8cb1b6490e2a3884182ee32b4ac4355d, type: 3}
-  - {fileID: 6441917552412668191, guid: 253cc85fb9e039243bd440ec33b0f98d, type: 3}
   - {fileID: 5084444308881738701, guid: 6966141ceb26a91419bed08e4234c86c, type: 3}
   - {fileID: 4760951386187051345, guid: 4c00d6ddab5de2642bb2a5ad1c97ccd9, type: 3}
   hardEnemies:
@@ -21799,8 +21775,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b38337c61864ed045a0f698ccce2cc28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  slowmoDuration: 2
-  slowmoStrength: 1
 --- !u!199 &1106244298
 ParticleSystemRenderer:
   serializedVersion: 6
@@ -34851,6 +34825,8 @@ MonoBehaviour:
   _singleMaterial: {fileID: 2100000, guid: 143d2d6a461ba014cabf55151b8e4526, type: 2}
   _areaMaterial: {fileID: 2100000, guid: 5ca916bb96643304eb148877bbbfda5b, type: 2}
   _defenceMaterial: {fileID: 2100000, guid: 833c83063b0b4554fa56c898442a07b7, type: 2}
+  _enemyMaterial: {fileID: 2100000, guid: 43ed437d729858a409d13ceb4bbb253c, type: 2}
+  _highlightMaterial: {fileID: 2100000, guid: 14eea6d701a4ed942a1ec0f9f09a962d, type: 2}
 --- !u!4 &1680210105
 Transform:
   m_ObjectHideFlags: 0
@@ -35779,7 +35755,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -50}
+  m_AnchoredPosition: {x: 0, y: -50.00003}
   m_SizeDelta: {x: 0, y: -50}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1791327169
@@ -46377,51 +46353,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: caeaf0819e433974bbb6466371b93bd3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 0.12
-  layerMask:
-    serializedVersion: 2
-    m_Bits: 128
-  bodyEvaluationSpeed: 0.044
-  bodyHeight: 1.2
-  targets:
-  - {fileID: 1869638814}
-  - {fileID: 2096571618}
-  - {fileID: 15598347}
-  - {fileID: 550648178}
-  realTargets:
-  - {fileID: 16677328}
-  - {fileID: 579007403}
-  - {fileID: 1918843902}
-  - {fileID: 1030068728}
-  smoothness: 4
-  stepHeight: 0
-  maxStepDistance: 1.2
-  rotationCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 1
-      outSlope: 1
-      tangentMode: 34
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 1
-      value: 1
-      inSlope: 1
-      outSlope: 1
-      tangentMode: 34
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  rotationDuration: 1
-  raycastHitLength: 1.5
 --- !u!1 &1950858413
 GameObject:
   m_ObjectHideFlags: 0

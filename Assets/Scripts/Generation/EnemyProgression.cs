@@ -8,8 +8,8 @@ public class EnemyProgression : MonoBehaviour
 
     [SerializeField] private float overallEnemyHealthMultiplierPerArena = 0.05f;
 
-    public float GetEnemyHealth(int wave, float baseHealth)
+    public float GetEnemyHealth(int wave)
     {
-        return (baseHealth * (1f + (enemyHealthProgressinonPerArena * wave))) * (1f + (overallEnemyHealthMultiplierPerArena * wave)); ;
+        return 1f + (enemyHealthProgressinonPerArena * wave) * (1f + (overallEnemyHealthMultiplierPerArena * wave)); 
     }
 }

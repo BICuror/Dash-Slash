@@ -81,9 +81,11 @@ public sealed class PresentationManager : MonoBehaviour
 
         EnemyHealth currentEnemyHealth = currentEnemy.GetComponent<EnemyHealth>();
 
-        currentEnemyHealth.DeathEvent += _enemyList.RemoveEnemyFromList;
+        currentEnemyHealth.MultiplyMaxHelath(1);
 
-        currentEnemyHealth.DeathEvent += ReSpawnEnemy;  
+        currentEnemyHealth.DeathEvent.AddListener(_enemyList.RemoveEnemyFromList);
+
+        currentEnemyHealth.DeathEvent.AddListener(ReSpawnEnemy);  
         
         _enemyList.AddEnemy(currentEnemy.transform);
     }

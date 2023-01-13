@@ -19,6 +19,8 @@ public class MoveAgent : MonoBehaviour, IStunable, IKnockbackable
 
     [SerializeField] private bool _isKnockbackable;
 
+    private Vector3 _behaviouralOffset;
+
     [Header("Behaviour")]
 
     [SerializeField] private MoveBehaviour _moveBehaviour;
@@ -32,13 +34,15 @@ public class MoveAgent : MonoBehaviour, IStunable, IKnockbackable
         _rb = GetComponent<Rigidbody2D>();
 
         _defaultSpeed = _moveSpeed;
+
+        _behaviouralOffset = new Vector3(Random.Range(-1f, 1f), Random.Range(-1f, 1f), 0f);
     }
 
     public void SetMoveSpeed(float speed) => _moveSpeed = speed;
 
     private void FixedUpdate()
     {
-        Vector3 targetPosition = _moveBehaviour.GetPosition(transform);
+        Vector3 targetPosition = _moveBehaviour.GetPosition(transform) + _behaviouralOffset;
 
         MoveTowards(CalculateDirection(targetPosition));
 

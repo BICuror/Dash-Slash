@@ -11,6 +11,12 @@ public sealed class EnemyList : MonoBehaviour
  
     public UnityEvent<Vector3> EnemyDied;
 
+    public void AddEnemy(Transform newEnemy) => _enemiesTransforms.Add(newEnemy);
+
+    public int GetAmountOfKilledEnemies() => _killedEnemiesCount;
+    
+    public void ClearList() => _enemiesTransforms = new List<Transform>();
+    
     public void RemoveEnemyFromList(Transform enemy)
     {
         _killedEnemiesCount++;
@@ -34,14 +40,31 @@ public sealed class EnemyList : MonoBehaviour
         return _enemiesTransforms[index];
     }
 
-    public int GetAmountOfEnemies()
+    public int GetAmountOfEnemies() 
     {
+        ClearFromNulls();
+
         return _enemiesTransforms.Count;
+    } 
+
+    public bool CheckIfEmpty()
+    {
+        ClearFromNulls();
+
+        return _enemiesTransforms.Count == 0;
     }
 
-    public void AddEnemy(Transform newEnemy)
+    private void ClearFromNulls()
     {
-        _enemiesTransforms.Add(newEnemy);
+        for (int i = 0; i < _enemiesTransforms.Count; i++)
+        {
+            if (_enemiesTransforms[i] == null) 
+            {
+                _enemiesTransforms.RemoveAt(i);
+
+                i--;
+            }
+        }
     }
 
     public Transform GetClosestEnemy(Vector3 postion)
@@ -115,28 +138,4 @@ public sealed class EnemyList : MonoBehaviour
 
         return _enemiesTransforms[index];
     }
-
-    public bool CheckIfEmpty()
-    {
-        ClearFromNulls();
-
-        return _enemiesTransforms.Count == 0;
-    }
-
-    private void ClearFromNulls()
-    {
-        for (int i = 0; i < _enemiesTransforms.Count; i++)
-        {
-            if (_enemiesTransforms[i] == null) 
-            {
-                _enemiesTransforms.RemoveAt(i);
-
-                i--;
-            }
-        }
-    }
-
-    public void ClearList() => _enemiesTransforms = new List<Transform>();
-    
-    public int GetAmountOfKilledEnemies() => _killedEnemiesCount;
 }

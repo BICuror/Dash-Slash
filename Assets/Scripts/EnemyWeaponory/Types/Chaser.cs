@@ -1,47 +1,21 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class Chaser : EnemyTaskManager
+public class Chaser : MonoBehaviour
 {
-    [Header("Links")]
-    [SerializeField] private ParticleSystem partSystem;
+    private DashingModule _dashingModule;
 
-    [SerializeField] private Animator anim;
-
-    private DashingModule dashingModule;
-
-    private void Awake()
+    private void Start() => _dashingModule = GetComponent<DashingModule>();
+    
+    public void Dash()
     {
-        dashingModule = GetComponent<DashingModule>();
-    }
-
-    protected override void PreperateTask()
-    {
-        partSystem.Play();
-
-        anim.Play("EnemyPrepeare");
-    }
-
-    protected override void DoTask()
-    {
-        anim.Play("EnemyShortDash");
-
-        dashingModule.StartDash(transform.right);
-    }
-
-    protected override void StopTask()
-    {
-        dashingModule.StopDash();
+        _dashingModule.StartDash(transform.right);
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("Borders"))
         {
-            StopTask();
-
-            partSystem.Play();
+            _dashingModule.StopDash();
         }
     }
 }

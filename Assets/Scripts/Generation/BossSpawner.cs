@@ -14,7 +14,7 @@ public class BossSpawner : MonoBehaviour
 
         EnemyHealth bossHealth = currentBoss.GetComponent<EnemyHealth>();
 
-        bossHealth.SetMaxHealth(_enemyProgression.GetEnemyHealth(Main.arenaManager.GetCurrentWave(), bossHealth.maxHP));
+        bossHealth.MultiplyMaxHelath(_enemyProgression.GetEnemyHealth(Main.arenaManager.GetCurrentWave()));
 
         Main.enemyList.AddEnemy(currentBoss.transform);
     }

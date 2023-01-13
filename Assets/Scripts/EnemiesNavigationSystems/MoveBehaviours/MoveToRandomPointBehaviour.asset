@@ -9,9 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d78a4181272f0734694bbabd8b05d83c, type: 3}
-  m_Name: TeleporterEnemyProfile
+  m_Script: {fileID: 11500000, guid: a94499c8383a0554da087288dec8d14f, type: 3}
+  m_Name: MoveToRandomPointBehaviour
   m_EditorClassIdentifier: 
-  Name: Taurus
-  Description: Strongly dashes towards player
-  Icon: {fileID: -860468679390908754, guid: 4d2e9f636f07bf34084c68d708951b6c, type: 3}
+  _minimalDistance: 0.96

@@ -4907,10 +4907,13 @@ GameObject:
   - component: {fileID: 1996168883793506639}
   - component: {fileID: 3320797743747587359}
   - component: {fileID: 7126024940880033762}
+  - component: {fileID: 3454764175036690522}
   - component: {fileID: 8545273729241736773}
   - component: {fileID: 851201720045688868}
   - component: {fileID: 3715304218839396902}
   - component: {fileID: -8266324254774553290}
+  - component: {fileID: 6200519858802907101}
+  - component: {fileID: 5942556835895165712}
   m_Layer: 6
   m_Name: BombEnemy
   m_TagString: Enemy
@@ -4963,7 +4966,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 0.49
+  m_Mass: 0.15
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
@@ -4981,16 +4984,42 @@ MonoBehaviour:
   m_GameObject: {fileID: 4105689339622157090}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4cdf18bcc89dc1649bde3c4753cd5bc3, type: 3}
+  m_Script: {fileID: 11500000, guid: ccdc2eee265a03345b3a88a10dbca87a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 25
-  partSystem: {fileID: 6112006607978162974}
-  anim: {fileID: 1669210728863214430}
-  amountOfBullets: 4
+  _maxHealth: 25
+  HitEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  DeathEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3454764175036690522}
+        m_TargetAssemblyTypeName: ShootingModule, Assembly-CSharp
+        m_MethodName: ShootFromTransform
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &3454764175036690522
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4105689339622157090}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 797c38d5731c7584ebdb03e1eb49defb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   bullet: {fileID: 3789579024821379164, guid: 2198f84264a8eed448a031b7d7ddac33, type: 3}
   bulletSpeed: 12
-  explosionParticleSystem: {fileID: 8600646977103105559}
 --- !u!114 &8545273729241736773
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5004,10 +5033,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _moveSpeed: 5
-  _rotationSpeed: 0
+  _rotationSpeed: 360
   _acceleration: 1.005
   _dumping: 0.07
   _isKnockbackable: 1
+  _moveBehaviour: {fileID: 11400000, guid: 58b3612ff1dc8b54fa442857d23cbbf9, type: 2}
+  _rotationBehaviour: {fileID: 11400000, guid: cc60d02cd62102d4cafe431d546194c3, type: 2}
 --- !u!114 &851201720045688868
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5020,7 +5051,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 593ab55b86ff76741ab517fdc24249cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _spriteRenderers: []
+  _spriteRenderers:
+  - {fileID: 154602535188314210}
   _trailRenderers: []
   _particleSystems: []
 --- !u!114 &3715304218839396902
@@ -5035,8 +5067,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ddb9d2203bed9b40ae53e657a29bfa6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  highlightMaterial: {fileID: 2100000, guid: 14eea6d701a4ed942a1ec0f9f09a962d, type: 2}
-  defaultMaterial: {fileID: 2100000, guid: 43ed437d729858a409d13ceb4bbb253c, type: 2}
+  _highlightMaterial: {fileID: 2100000, guid: 14eea6d701a4ed942a1ec0f9f09a962d, type: 2}
+  _defaultMaterial: {fileID: 2100000, guid: 43ed437d729858a409d13ceb4bbb253c, type: 2}
 --- !u!114 &-8266324254774553290
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5050,6 +5082,30 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _currentEnemyProfile: {fileID: 11400000, guid: 6bea1f7b61c6c2441bc430988773a6ba, type: 2}
+--- !u!114 &6200519858802907101
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4105689339622157090}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7318318a204e2cf4898e09bd59759faf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &5942556835895165712
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4105689339622157090}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d3b1b6f1a20b7442930772c16b53490, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &9014730843160106325
 GameObject:
   m_ObjectHideFlags: 0

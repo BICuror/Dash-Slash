@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyColorManager : MonoBehaviour
+public sealed class EnemyColorManager : MonoBehaviour
 {
     [SerializeField] private List<SpriteRenderer> _spriteRenderers;
 

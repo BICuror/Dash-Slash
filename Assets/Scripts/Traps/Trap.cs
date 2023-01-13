@@ -14,6 +14,6 @@ public class Trap : MonoBehaviour
 
     private void OnDestroy()
     {
-        Main.enemySpawner.CheckIfLast();
+        //Main.enemySpawner.CheckIfLast();
     }
 }

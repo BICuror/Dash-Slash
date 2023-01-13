@@ -49,7 +49,7 @@ public class ArenaManager : MonoBehaviour
 
         Main.droneContainer.StartTasks();
         
-        if (IsBossArena() == true)
+        if (IsBossArena() == false)
         {
             Main.s_roundTimeManager.StartTimer();
 

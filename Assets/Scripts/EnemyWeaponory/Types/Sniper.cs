@@ -1,40 +1,22 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class Sniper : EnemyTaskManager
+public sealed class Sniper : MonoBehaviour
 {
-    [SerializeField] private ParticleSystem partSystem;
-    
-    [SerializeField] private Animator anim;
+    private ShootingModule _shootingModule;
 
-    private ShootingModule shootingModule;
-
-    private MoveAgent agent;
-
+    private MoveAgent _moveAgent;
 
     private void Awake()
     {
-        agent = GetComponent<MoveAgent>();
+        _moveAgent = GetComponent<MoveAgent>();
 
-        shootingModule = GetComponent<ShootingModule>();
+        _shootingModule = GetComponent<ShootingModule>();
     }
 
-    protected override void PreperateTask() 
+    public void Shoot()
     {
-        agent.Stun(1f);
+        _moveAgent.KnockBack(transform.right, 2f);
 
-        anim.Play("EnemyPrepeare");
-    }
-
-    protected override void DoTask()
-    {
-        partSystem.Play();
-
-        anim.Play("EnemyLineTask");
-
-        agent.KnockBack(transform.right, 8f);
-
-        shootingModule.ShootFromVector(transform.right);
+        _shootingModule.ShootFromVector(transform.right);
     }  
 }

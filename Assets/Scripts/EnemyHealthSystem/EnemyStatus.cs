@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(EnemyColorManager))]
+[RequireComponent(typeof(MoveAgent))]
+
 public sealed class EnemyStatus : MonoBehaviour, IShockable, IBurnable
 {
     private EnemyColorManager _colorManager;
@@ -10,15 +13,11 @@ public sealed class EnemyStatus : MonoBehaviour, IShockable, IBurnable
     
     private MoveAgent _moveAgent;
 
-    private bool _isShoked;
+    private ShockEffectManager _shockManager;
 
-    private bool _isOnFire;
+    private BurnEffectManager _burnManager;
 
-    [Header("HighlightSettings")]
-
-    [SerializeField] private Material highlightMaterial;
-    
-    [SerializeField] private Material defaultMaterial;
+    private readonly float _higlightDuration = 0.13f;
 
     private void Awake()
     {
@@ -27,87 +26,49 @@ public sealed class EnemyStatus : MonoBehaviour, IShockable, IBurnable
         _moveAgent = GetComponent<MoveAgent>();
 
         _colorManager = GetComponent<EnemyColorManager>();
+
+        _burnManager = GetComponent<BurnEffectManager>();
+
+        _shockManager = GetComponent<ShockEffectManager>();
     }
 
-    public bool IsShocked() => _isShoked;
+    public bool IsShocked() => _shockManager.IsShocked();
+    
+    public void Shock(float duration) => _shockManager.Shock(duration);
 
-    public bool IsOnFire() => _isOnFire;
+    public bool IsOnFire() => _burnManager.IsOnFire();
 
-    public void Shock(float duration)
+    public void SetOnFire() 
     {
-        StopAllCoroutines();
-
-        _isShoked = true;
-
-        _moveAgent.Stun(duration);
-        
-        float elapsedTime = 0f;
-
-        _colorManager.SetMaterial(highlightMaterial);
-
-        StartCoroutine(DeShockEnemy(duration));
-        
-        IEnumerator DeShockEnemy(float duration)
-        {
-            yield return new WaitForFixedUpdate();
-            
-            if (duration > elapsedTime)
-            {
-                elapsedTime += Time.deltaTime;
-
-                _colorManager.SetColor(Color.Lerp(Main.colorManager.GetAreaColor(), defaultMaterial.color, elapsedTime / duration));
-
-                StartCoroutine(DeShockEnemy(duration));
-            }
-            else
-            {
-                _isShoked = false;
-
-                _colorManager.SetMaterial(defaultMaterial);
-
-                _colorManager.SetColor(Color.white);
-            }
-        }
-    }
-
-    public void SetOnFire()
-    {
-        if (_isOnFire == false)
-        {
-            _isOnFire = true;
-
-            _damagable.GetPercentHurt(0.1f);
-
-            StartCoroutine(Burn());
-        }
-    }
-
-    IEnumerator Burn()
-    {
-        yield return new WaitForSeconds(1f);
-
-        _damagable.GetPercentHurt(0.2f);
-
-        StartCoroutine(Burn());
+        _burnManager.SetOnFire();
+    
+        HighlightEnemy();
     }
 
     public void HighlightEnemy()
     {
         StartCoroutine(UnHighlightEnemy());
 
-        _colorManager.SetMaterial(highlightMaterial);
+        _colorManager.SetMaterial(Main.colorManager.GetHighlightMaterial());
 
-        if (_isShoked == false) _colorManager.SetColor(highlightMaterial.color);
+        _colorManager.SetColor(Main.colorManager.GetHighlightColor());
 
         StartCoroutine(UnHighlightEnemy());
     }
-    
+
     private IEnumerator UnHighlightEnemy()
     {
-        yield return new WaitForSeconds(0.13f);
+        yield return new WaitForSeconds(_higlightDuration);
             
-        if (_isOnFire == true) _colorManager.SetColor(Main.colorManager.GetDefenceColor());
+        if (IsOnFire()) _colorManager.SetColor(Main.colorManager.GetDefenceColor());
     
-        else if (_isShoked == false) _colorManager.SetMaterial(defaultMaterial);
+        else if (IsShocked()) _colorManager.SetMaterial(Main.colorManager.GetEnemyMaterial());
+
+        else
+        {
+            _colorManager.SetMaterial(Main.colorManager.GetEnemyMaterial());
+
+            _colorManager.SetColor(Main.colorManager.GetEnemyColor());
+        }
     }
 }

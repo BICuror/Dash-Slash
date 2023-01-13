@@ -158,6 +158,9 @@ GameObject:
   - component: {fileID: 3907023610714472356}
   - component: {fileID: 5448715722037879715}
   - component: {fileID: -8003743660332755523}
+  - component: {fileID: 8419263830013908452}
+  - component: {fileID: 4696327924484966339}
+  - component: {fileID: -8821948363598583006}
   m_Layer: 6
   m_Name: ChaisingEnemy
   m_TagString: Enemy
@@ -211,7 +214,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 0.49
+  m_Mass: 0.3
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
@@ -229,11 +232,40 @@ MonoBehaviour:
   m_GameObject: {fileID: 5752888505519886052}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 98837251f10d3ed45b806ed5b1d2364f, type: 3}
+  m_Script: {fileID: 11500000, guid: ccdc2eee265a03345b3a88a10dbca87a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 20
-  _hurtParticleSystem: {fileID: 0}
+  _maxHealth: 20
+  HitEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3907023610714472356}
+        m_TargetAssemblyTypeName: EnemyStatus, Assembly-CSharp
+        m_MethodName: HighlightEnemy
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 5789819019048899064}
+        m_TargetAssemblyTypeName: UnityEngine.ParticleSystem, UnityEngine
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  DeathEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &124660431990539139
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -247,12 +279,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _moveSpeed: 7
-  _rotationSpeed: 240
+  _rotationSpeed: 200
   _acceleration: 1.005
   _dumping: 0.07
   _isKnockbackable: 1
-  _moveBehaviour: {fileID: 0}
-  _rotationBehaviour: {fileID: 0}
+  _moveBehaviour: {fileID: 11400000, guid: 58b3612ff1dc8b54fa442857d23cbbf9, type: 2}
+  _rotationBehaviour: {fileID: 11400000, guid: cc60d02cd62102d4cafe431d546194c3, type: 2}
 --- !u!114 &1787054190367805406
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -265,8 +297,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36589534fb8c36545a3acab95f7c0850, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dashDuration: 2
-  dashSpeed: 12
+  dashDuration: 1.8
+  dashSpeed: 9
 --- !u!114 &404694759637061131
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -279,11 +311,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8eb3f52a1a2f8bd4f9140b6cddb69879, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  randomAttackPeriod: 1
-  attackPeriod: 1
-  timeAfterWarning: 0.4
-  partSystem: {fileID: 1868819812205311719}
-  anim: {fileID: 7995037250643296354}
 --- !u!114 &3907023610714472356
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -296,8 +323,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ddb9d2203bed9b40ae53e657a29bfa6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  highlightMaterial: {fileID: 2100000, guid: 14eea6d701a4ed942a1ec0f9f09a962d, type: 2}
-  defaultMaterial: {fileID: 2100000, guid: 43ed437d729858a409d13ceb4bbb253c, type: 2}
+  _highlightMaterial: {fileID: 2100000, guid: 14eea6d701a4ed942a1ec0f9f09a962d, type: 2}
+  _defaultMaterial: {fileID: 2100000, guid: 43ed437d729858a409d13ceb4bbb253c, type: 2}
 --- !u!114 &5448715722037879715
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -310,9 +337,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 593ab55b86ff76741ab517fdc24249cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _spriteRenderers: []
-  _trailRenderers: []
-  _particleSystems: []
+  _spriteRenderers:
+  - {fileID: 1304712652831115285}
+  _trailRenderers:
+  - {fileID: 2083677420599258887}
+  _particleSystems:
+  - {fileID: 1868819812205311719}
 --- !u!114 &-8003743660332755523
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -326,6 +356,112 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _currentEnemyProfile: {fileID: 11400000, guid: 064d07438d627d94a89b25f745b7ee2a, type: 2}
+--- !u!114 &8419263830013908452
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5752888505519886052}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c99709ddc1ae25344923b557880b3cc7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _warmupDelay: 0.3
+  _randomAttackPeriod: 1
+  _attackPeriod: 0.8
+  _timeAfterWarning: 0.5
+  TaskBegunPrepearing:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1868819812205311719}
+        m_TargetAssemblyTypeName: UnityEngine.ParticleSystem, UnityEngine
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 7995037250643296354}
+        m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
+        m_MethodName: Play
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: EnemyPrepeare
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 124660431990539139}
+        m_TargetAssemblyTypeName: MoveAgent, Assembly-CSharp
+        m_MethodName: Stun
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0.5
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  TaskStarted:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7995037250643296354}
+        m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
+        m_MethodName: Play
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: EnemyShortDash
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 404694759637061131}
+        m_TargetAssemblyTypeName: Chaser, Assembly-CSharp
+        m_MethodName: Dash
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &4696327924484966339
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5752888505519886052}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7318318a204e2cf4898e09bd59759faf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &-8821948363598583006
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5752888505519886052}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d3b1b6f1a20b7442930772c16b53490, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6064022785389098919
 GameObject:
   m_ObjectHideFlags: 0
@@ -5246,7 +5382,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7061257872670930590}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0

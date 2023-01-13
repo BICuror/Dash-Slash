@@ -18,6 +18,8 @@ GameObject:
   - component: {fileID: 28797204907313155}
   - component: {fileID: 2861192608418013751}
   - component: {fileID: 6562897141081375885}
+  - component: {fileID: 256158280716804823}
+  - component: {fileID: 669046283663882852}
   m_Layer: 6
   m_Name: 'BigEnemy '
   m_TagString: Enemy
@@ -35,6 +37,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 8.79152, y: 5.7958164, z: -0.5148983}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -4853,11 +4856,40 @@ MonoBehaviour:
   m_GameObject: {fileID: 3323655273262081703}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 98837251f10d3ed45b806ed5b1d2364f, type: 3}
+  m_Script: {fileID: 11500000, guid: ccdc2eee265a03345b3a88a10dbca87a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 20
-  partSystem: {fileID: 5258054586026159284}
+  _maxHealth: 20
+  HitEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6562897141081375885}
+        m_TargetAssemblyTypeName: EnemyStatus, Assembly-CSharp
+        m_MethodName: HighlightEnemy
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 5258054586026159284}
+        m_TargetAssemblyTypeName: UnityEngine.ParticleSystem, UnityEngine
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  DeathEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &1620249936866312732
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4870,11 +4902,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5809d595075951b418f5385bad4191e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 0
-  rotationSpeed: 0
-  acceleration: 0
-  dumping: 0
+  _moveSpeed: 0
+  _rotationSpeed: 0
+  _acceleration: 0
+  _dumping: 0
   _isKnockbackable: 0
+  _moveBehaviour: {fileID: 11400000, guid: 58b3612ff1dc8b54fa442857d23cbbf9, type: 2}
+  _rotationBehaviour: {fileID: 11400000, guid: 7f41d570c7b0c2849bc06726a51e5e09, type: 2}
 --- !u!199 &28797204907313155
 ParticleSystemRenderer:
   serializedVersion: 6
@@ -4918,6 +4952,7 @@ ParticleSystemRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_RenderMode: 0
+  m_MeshDistribution: 0
   m_SortMode: 0
   m_MinParticleSize: 0
   m_MaxParticleSize: 0.5
@@ -4941,6 +4976,10 @@ ParticleSystemRenderer:
   m_Mesh1: {fileID: 0}
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
+  m_MeshWeighting: 1
+  m_MeshWeighting1: 1
+  m_MeshWeighting2: 1
+  m_MeshWeighting3: 1
   m_MaskInteraction: 0
 --- !u!114 &2861192608418013751
 MonoBehaviour:
@@ -4954,9 +4993,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 593ab55b86ff76741ab517fdc24249cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spriteRenderers:
+  _spriteRenderers:
   - {fileID: 7732330049634593569}
-  trailRenderers: []
+  _trailRenderers: []
+  _particleSystems: []
 --- !u!114 &6562897141081375885
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4969,5 +5009,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ddb9d2203bed9b40ae53e657a29bfa6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultMaterial: {fileID: 2100000, guid: 43ed437d729858a409d13ceb4bbb253c, type: 2}
-  highlightMaterial: {fileID: 2100000, guid: 14eea6d701a4ed942a1ec0f9f09a962d, type: 2}
+--- !u!114 &256158280716804823
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3323655273262081703}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d3b1b6f1a20b7442930772c16b53490, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &669046283663882852
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3323655273262081703}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7318318a204e2cf4898e09bd59759faf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
