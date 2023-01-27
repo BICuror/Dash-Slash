@@ -47685,7 +47685,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4d8407949dac924ab58d7e400251585, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0.07
+  _transitionSpeed: 0.04
 --- !u!114 &1633398941
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -55001,6 +55001,8 @@ MonoBehaviour:
   _singleMaterial: {fileID: 2100000, guid: 143d2d6a461ba014cabf55151b8e4526, type: 2}
   _areaMaterial: {fileID: 2100000, guid: 5ca916bb96643304eb148877bbbfda5b, type: 2}
   _defenceMaterial: {fileID: 2100000, guid: 833c83063b0b4554fa56c898442a07b7, type: 2}
+  _enemyMaterial: {fileID: 0}
+  _highlightMaterial: {fileID: 0}
 --- !u!1 &2053803048
 GameObject:
   m_ObjectHideFlags: 0

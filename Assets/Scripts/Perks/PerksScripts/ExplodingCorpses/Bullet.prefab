@@ -32,6 +32,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -121,10 +122,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0fcea6932e1949f44a69f8b2b1dd05ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _type: 2
-  isPenetrating: 1
-  bulletParticles: {fileID: 3837927753631115793, guid: df0858eaf54e7f348b9d931350e4279b, type: 3}
-  canBeSplitted: 0
+  _damageType: 2
+  _isPenetrating: 1
+  _bulletParticles: {fileID: 3837927753631115793, guid: df0858eaf54e7f348b9d931350e4279b, type: 3}
 --- !u!199 &5558433638754443671
 ParticleSystemRenderer:
   serializedVersion: 6
@@ -168,6 +168,7 @@ ParticleSystemRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_RenderMode: 0
+  m_MeshDistribution: 0
   m_SortMode: 0
   m_MinParticleSize: 0
   m_MaxParticleSize: 0.5
@@ -191,6 +192,10 @@ ParticleSystemRenderer:
   m_Mesh1: {fileID: 0}
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
+  m_MeshWeighting: 1
+  m_MeshWeighting1: 1
+  m_MeshWeighting2: 1
+  m_MeshWeighting3: 1
   m_MaskInteraction: 0
 --- !u!198 &3566459729840507971
 ParticleSystem:

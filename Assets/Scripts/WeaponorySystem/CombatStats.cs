@@ -1,8 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class CombatStats : MonoBehaviour
+public sealed class CombatStats : MonoBehaviour
 {
     private float allDamageMultiplier = 1f;
 

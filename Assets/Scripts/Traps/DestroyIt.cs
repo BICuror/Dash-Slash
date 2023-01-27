@@ -1,8 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class DestroyIt : MonoBehaviour
+public sealed class DestroyIt : MonoBehaviour
 {
     [SerializeField] private float timeBeforeDestroying;
 

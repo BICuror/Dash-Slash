@@ -1,46 +1,49 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class LaserBullet : MonoBehaviour
+public sealed class LaserBullet : MonoBehaviour
 {
-    private float lifetime = 5f;
+    private float _lifetime = 5f;
 
-    private Rigidbody2D rb;
+    private Rigidbody2D _rb;
 
-    private int damage;
+    private int _damage;
     
     public void Setup(int newDamage) 
     {
-        damage = newDamage;
+        _damage = newDamage;
 
-        rb = GetComponent<Rigidbody2D>();
+        _rb = GetComponent<Rigidbody2D>();
 
-        Destroy(gameObject, lifetime);
+        Destroy(gameObject, _lifetime);
 
-        Invoke("StartDisappearing", lifetime - 0.75f);
+        Invoke("StartDisappearing", _lifetime - 0.75f);
     }
 
-    private void StartDisappearing()
-    {
-        GetComponent<Animator>().Play("LaserBulletDisappear");
-    }
+    private void StartDisappearing() => GetComponent<Animator>().Play("LaserBulletDisappear");
 
     private void OnTriggerEnter2D(Collider2D other) 
     {
         if (other.gameObject.TryGetComponent(out IDamagable health))
         {
-            health.GetHurt(Main.combatStats.MultiplyDamage(damage, DroneType.Area));
+            health.GetHurt(Main.combatStats.MultiplyDamage(_damage, DroneType.Area));
 
             other.gameObject.GetComponent<IKnockbackable>().KnockBack(transform.position, 2f);
         }
-        else if (other.gameObject.name == "downBarier" || other.gameObject.name == "upBarier")
+        else 
         {
-            rb.velocity = new Vector2(rb.velocity.x, -rb.velocity.y); 
+            ChangeVelocity(other.gameObject);
+        }
+    }
+
+    private void ChangeVelocity(GameObject gameObject)
+    {
+        if (gameObject.name == "downBarier" || gameObject.name == "upBarier")
+        {
+            _rb.velocity = new Vector2(_rb.velocity.x, -_rb.velocity.y); 
         }   
         else
         {
-            rb.velocity = new Vector2(-rb.velocity.x, rb.velocity.y); 
-        }  
+            _rb.velocity = new Vector2(-_rb.velocity.x, _rb.velocity.y); 
+        } 
     }
 }

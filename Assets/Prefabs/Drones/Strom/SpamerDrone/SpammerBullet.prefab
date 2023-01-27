@@ -123,10 +123,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0fcea6932e1949f44a69f8b2b1dd05ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _type: 0
-  isPenetrating: 0
-  bulletParticles: {fileID: 3837927753631115793, guid: d57b16a7ca95d454db198717656245de, type: 3}
-  canBeSplitted: 0
+  _damageType: 0
+  _isPenetrating: 0
+  _bulletParticles: {fileID: 3837927753631115793, guid: d57b16a7ca95d454db198717656245de, type: 3}
 --- !u!199 &2310017373432452588
 ParticleSystemRenderer:
   serializedVersion: 6

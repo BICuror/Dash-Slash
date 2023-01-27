@@ -4,150 +4,112 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    [SerializeField] private DroneType _type;
+    [SerializeField] private DroneType _damageType;
 
-    [SerializeField] protected bool isPenetrating;
+    [SerializeField] private bool _isPenetrating;
 
-    [SerializeField] protected GameObject bulletParticles;
+    [SerializeField] private GameObject _bulletParticles;
 
-    [SerializeField] private bool canBeSplitted;
-
-    [HideInInspector] protected float damage;
+    [HideInInspector] private float _damage;
 
     // homing settings
-    protected Rigidbody2D rb;
+    protected Rigidbody2D _rb;
 
-    protected float speed;
+    protected float _speed;
 
-    protected float homingSpeed;
+    private float _homingSpeed;
 
-    protected EnemyList enemyList;
+    protected EnemyList _enemyList;
 
-    protected Transform targetTransform;
+    protected Transform _targetTransform;
 
     // bounce settings
 
-    private int leftBounces;
+    private int _leftBounces;
 
-    public void Setup(float newDamageValue, float newSpeedValue) 
+    public void Setup(float newDamageValue, float newSpeedValue, EnemyList enemyList) 
     {
-        speed = newSpeedValue;
+        _speed = newSpeedValue;
         
-        damage = newDamageValue; 
+        _damage = newDamageValue; 
 
-        rb = GetComponent<Rigidbody2D>();
+        _enemyList = enemyList;
+
+        _rb = GetComponent<Rigidbody2D>();
         
-        rb.AddForce(transform.right * speed, ForceMode2D.Impulse);
+        _rb.AddForce(transform.right * _speed, ForceMode2D.Impulse);
 
-        StartCoroutine(DestroyAfter(4f));
-
-        // bounceSettings
-
-        if (Main.combatStats.singleBounceAmount > 0) leftBounces = Main.combatStats.singleBounceAmount;
+        Invoke("DestroyBullet", 4f);
     }
 
-    private IEnumerator DestroyAfter(float time)
+    public void CheckAndSetupEffects()
     {
-        yield return new WaitForSeconds(time);
-        
-        DestroyBullet(transform.position);
+        if (Main.combatStats.singleHomingSpeed > 0f) SetupHoming(Main.combatStats.singleHomingSpeed);
+
+        if (Main.combatStats.singleBounceAmount > 0) _leftBounces = Main.combatStats.singleBounceAmount;
+
+        if (Main.combatStats.singleArePenetrating == true) SetupPenetrating();
     }
 
-    public void SetupBounce(int bounces)
-    {
-        leftBounces = bounces;
-    }
-
+    public void SetupBounce(int bounces) => _leftBounces = bounces;
+    
     public void SetupHoming(float rotationSpeed)
     {
-        homingSpeed = rotationSpeed;
+        _homingSpeed = rotationSpeed;
 
-        StartCoroutine(Homing());
+        StartCoroutine(HomeBullet());
     }
+    
+    public void SetupPenetrating() => _isPenetrating = true;
 
-    public bool GetHomingState()
-    {
-        return (homingSpeed > 0);
-    }
-
-    public void SetupPenetrating()
-    {
-        isPenetrating = true;
-    }
-
-    public bool GetPenetratingState()
-    {
-        return isPenetrating;
-    }
-
-    public void SetupEnemyList(EnemyList currentEnemyList)
-    {
-        enemyList = currentEnemyList;
-    }
- 
-    private IEnumerator Homing()
+    private IEnumerator HomeBullet()
     {
         yield return new WaitForFixedUpdate();
 
-        if (targetTransform == null) 
+        if (_targetTransform == null) 
         {
-            if (enemyList.GetAmountOfEnemies() != 0)
-            {
-                targetTransform = enemyList.GetClosestEnemy(transform.position);
-            }
-            else
-            {
-                rb.angularVelocity = 0f;
-            }
+            if (_enemyList.GetAmountOfEnemies() != 0) _targetTransform = _enemyList.GetClosestEnemy(transform.position);
+            else _rb.angularVelocity = 0f;
         } 
         else
         {
-            float rotationAmount = Vector3.Cross((targetTransform.position - transform.position).normalized, transform.right).z;
+            float rotationAmount = Vector3.Cross((_targetTransform.position - transform.position).normalized, transform.right).z;
 
-            rb.angularVelocity = -rotationAmount * homingSpeed;
+            _rb.angularVelocity = -rotationAmount * _homingSpeed;
 
-            rb.velocity = transform.right * speed;
+            _rb.velocity = transform.right * _speed;
         }
         
-        StartCoroutine(Homing());
+        StartCoroutine(HomeBullet());
     }
 
     protected virtual void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.TryGetComponent(out IDamagable health))
         {
-            health.GetHurt(Main.combatStats.MultiplyDamage(damage, _type));
+            health.GetHurt(Main.combatStats.MultiplyDamage(_damage, _damageType));
             
-            if (leftBounces > 0) 
+            if (_leftBounces > 0) 
             {
-                Transform newTarget = enemyList.GetClosestEnemyToEnemy(other.transform);
+                Transform newTarget = _enemyList.GetClosestEnemyToEnemy(other.transform);
             
-                if (newTarget != null)
-                {
-                    Bounce(newTarget);
-                }
+                if (newTarget != null) Bounce(newTarget);
             }
-            else if (isPenetrating == false)
+            else if (_isPenetrating == false)
             {
                 DestroyBullet((this.transform.position + other.gameObject.transform.position) / 2);
             }
         
-            if (isPenetrating == false) other.gameObject.GetComponent<IKnockbackable>().KnockBack(transform.position, 2f);
+            other.gameObject.GetComponent<IKnockbackable>().KnockBack(transform.position, 2f);
         }
         else if (other.gameObject.tag == "Borders")
         {
-            if (leftBounces > 0)
+            if (_leftBounces > 0)
             {
-                Transform newTarget = enemyList.GetClosestEnemyToEnemy(transform);
+                Transform newTarget = _enemyList.GetClosestEnemyToEnemy(transform);
             
-                if (newTarget != null)
-                {
-                    Bounce(transform);
-                }
-                else
-                {
-                    DestroyBullet(transform.position);
-                }
+                if (newTarget != null) Bounce(transform);
+                else DestroyBullet(transform.position);
             }
             else
             {
@@ -158,22 +120,28 @@ public class Bullet : MonoBehaviour
 
     private void Bounce(Transform enemy)
     {
-        Transform newTarget = enemyList.GetClosestEnemyToEnemy(enemy);
+        Transform newTarget = _enemyList.GetClosestEnemyToEnemy(enemy);
             
         if (newTarget != null)
         {
             transform.right = newTarget.position - transform.position;
 
-            rb.velocity = transform.right * speed;
+            _rb.velocity = transform.right * _speed;
         }
 
-        leftBounces--;
+        _leftBounces--;
     }
 
     protected void DestroyBullet(Vector3 spawnPosition)
     {
-        Instantiate(bulletParticles, spawnPosition, Quaternion.identity);
+        Instantiate(_bulletParticles, spawnPosition, Quaternion.identity);
 
-        Destroy(this.gameObject);
+        Destroy(gameObject);
     }
+
+    protected float GetDamage() => _damage;
+
+    public bool IsPenetrating() => _isPenetrating;
+
+    public bool IsHoming() => _homingSpeed > 0;
 }

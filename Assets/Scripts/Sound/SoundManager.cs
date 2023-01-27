@@ -4,24 +4,25 @@ public sealed class SoundManager : MonoBehaviour
 {
    [SerializeField] private AudioSource _musicSource; 
 
-   private float musicVolume;
+   private float _musicVolume;
 
-   private bool musicIsOn;
+   private bool _musicIsOn;
 
    [SerializeField] private AudioSource _sfxSource; 
 
-   private float sfxVolume;
+   private float _sfxVolume;
 
-   private bool sfxIsOn;
+   private bool _sfxIsOn;
 
    private void CloseSettings()
    {
-      if (musicVolume == 0f) musicIsOn = false;
-      if (sfxVolume == 0f) sfxIsOn = false; 
+      if (_musicVolume == 0f) _musicIsOn = false;
+      if (_sfxVolume == 0f) _sfxIsOn = false; 
    }
 
    public void PlaySfx(AudioClip clip)
-   {if (clip != null)
+   {
+      if (clip != null)
       _sfxSource.PlayOneShot(clip);
    }
 }

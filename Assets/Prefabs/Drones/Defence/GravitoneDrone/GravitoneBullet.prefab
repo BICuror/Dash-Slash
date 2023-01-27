@@ -30,6 +30,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.06, y: 1.9, z: 0}
   m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -135,4 +136,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3ba28ce9feaf744c81f446b1801f48e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gravitoneField: {fileID: 5273908425054619456, guid: f47d9b24f598bd84aabb79a3bd2525a6, type: 3}
+  _gravitoneField: {fileID: 5273908425054619456, guid: f47d9b24f598bd84aabb79a3bd2525a6, type: 3}

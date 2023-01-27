@@ -14,7 +14,7 @@ public class BulletVisualChanger : MonoBehaviour
     {
         Bullet bullet = GetComponent<Bullet>();
 
-        if (bullet.GetHomingState() == true)
+        if (bullet.IsHoming() == true)
         {
             partSystem.Play();
         }
@@ -23,11 +23,10 @@ public class BulletVisualChanger : MonoBehaviour
             Destroy(partSystem);
         }
 
-        if (bullet.GetPenetratingState() == true)
+        if (bullet.IsPenetrating() == true)
         {
             renderer.sprite = penetratingSprite;
         }
-
 
         Destroy(this);
     }

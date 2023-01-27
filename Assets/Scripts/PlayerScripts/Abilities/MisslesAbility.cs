@@ -50,10 +50,8 @@ public class MisslesAbility : MonoBehaviour
         
         Bullet currentBulletScript = currentBullet.GetComponent<Bullet>();
         
-        currentBulletScript.SetupEnemyList(Main.enemyList);
-
         currentBulletScript.SetupHoming(360f);
                 
-        currentBulletScript.Setup(_missleDamage, _missleSpeed);
+        currentBulletScript.Setup(_missleDamage, _missleSpeed, Main.enemyList);
     }
 }

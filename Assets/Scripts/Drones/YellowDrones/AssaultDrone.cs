@@ -26,24 +26,9 @@ public class AssaultDrone : DroneBasis
 
             currentBulletScript.SetAmountOfBullets(amountOfBullets);
         
-            if (Main.combatStats.singleHomingSpeed > 0f)
-            {
-                currentBulletScript.SetupEnemyList(_enemyList);
-
-                currentBulletScript.SetupHoming(Main.combatStats.singleHomingSpeed);
-            }
-
-            if (Main.combatStats.singleBounceAmount > 0)
-            {
-                currentBulletScript.SetupEnemyList(_enemyList);
-            }
-
-            if (Main.combatStats.singleArePenetrating == true)
-            {
-                currentBulletScript.SetupPenetrating();
-            }
-
-            currentBulletScript.Setup(damage, bulletSpeed);
+            currentBulletScript.CheckAndSetupEffects();
+            
+            currentBulletScript.Setup(damage, bulletSpeed, _enemyList);
         }          
     }
     

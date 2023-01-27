@@ -8968,7 +8968,7 @@ MonoBehaviour:
   startingAmountOfEnemiesInGroups: 1
   additionalEnemies: 1
   _bossSpawner: {fileID: 604297457}
-  _chanceOfBossArena: 15
+  _chanceOfBossArena: 100
 --- !u!4 &604297456
 Transform:
   m_ObjectHideFlags: 0
@@ -8998,6 +8998,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _bosses:
   - {fileID: 1853904307429696814, guid: edc39d94bdef15646af1d895e51239d0, type: 3}
+  - {fileID: 8001155051199957164, guid: c8e4bf3a9f09828489d977c6db98b6c2, type: 3}
   _enemyProgression: {fileID: 687216861}
 --- !u!1 &607472714
 GameObject:
@@ -20684,7 +20685,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76849a197a8cf7a4fbc8c07e515d2b09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  abilityRechargeSpeed: 0.005
+  abilityRechargeSpeed: 0.0045
   abilityCooldown: 0.25
   maxAbilityCharges: 3
   fillForOneActivation: 0.25

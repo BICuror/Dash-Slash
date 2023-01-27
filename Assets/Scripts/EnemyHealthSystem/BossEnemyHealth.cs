@@ -13,15 +13,24 @@ public sealed class BossEnemyHealth : MonoBehaviour, IDamagable
 
     private EnemyStatus _statusManager;
 
+    private bool _isDead;
+
     [Header("Events")]
     public UnityEvent OnHit; 
     public UnityEvent OnDeath;  
 
+    private void Start() => _statusManager = GetComponent<EnemyStatus>();
+
     private void OnEnable() => Main.s_bossHealthBar.ActivateHealthBar();
 
-    private void OnDisable() => Main.s_bossHealthBar.DeactivateHealthBar();
+    public void MultiplyMaxHelath(float percent)
+    {
+        _maxHealth *= percent;
 
-    public void GetPercentHurt(float percent) => GetHurt(_maxHealth * percent);
+        _currentHealth = _maxHealth;
+    }
+
+    public void GetPercentHurt(float percent) => GetHurt(_maxHealth * percent * 0.1f);
 
     public void GetHurt(float damage) 
     {
@@ -31,7 +40,9 @@ public sealed class BossEnemyHealth : MonoBehaviour, IDamagable
 
         _currentHealth -= damage;
             
-        if (_currentHealth <= 0f) 
+        Main.s_bossHealthBar.UpdateHealthBar(_currentHealth / _maxHealth);
+
+        if (_currentHealth <= 0f && _isDead == false) 
         {
             Die();
         }
@@ -47,6 +58,12 @@ public sealed class BossEnemyHealth : MonoBehaviour, IDamagable
 
     private void Die()
     {
+        _isDead = true;
+
+        Main.s_bossHealthBar.DeactivateHealthBar();
+
         OnDeath.Invoke();
     }
+
+    private void OnDestroy() => Main.arenaManager.StopArenaBattle();
 }

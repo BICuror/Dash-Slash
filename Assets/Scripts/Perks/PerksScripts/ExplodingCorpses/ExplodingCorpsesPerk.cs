@@ -27,13 +27,12 @@ public sealed class ExplodingCorpsesPerk : PerkBasis
             currentBullet.transform.rotation = Quaternion.Euler(0f, 0f, additionalAngle + angle * i);
                 
             Bullet currentBulletScript = currentBullet.GetComponent<Bullet>();
-            currentBulletScript.Setup(_missleDamage, _missleSpeed);
-                
-            currentBulletScript.SetupEnemyList(Main.enemyList);
 
+            currentBulletScript.Setup(_missleDamage, _missleSpeed, Main.enemyList);
+                
             currentBulletScript.SetupHoming(360f);
 
-            currentBulletScript.SetupBounce(0);
+            currentBulletScript.SetupPenetrating();
         }
     }
 

@@ -12,7 +12,7 @@ public class BossSpawner : MonoBehaviour
     {
         GameObject currentBoss = Instantiate(_bosses[Random.Range(0, _bosses.Count)], Vector3.zero, Quaternion.identity);
 
-        EnemyHealth bossHealth = currentBoss.GetComponent<EnemyHealth>();
+        BossEnemyHealth bossHealth = currentBoss.GetComponent<BossEnemyHealth>();
 
         bossHealth.MultiplyMaxHelath(_enemyProgression.GetEnemyHealth(Main.arenaManager.GetCurrentWave()));
 

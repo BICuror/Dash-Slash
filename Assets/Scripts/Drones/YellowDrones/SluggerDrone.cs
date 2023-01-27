@@ -24,24 +24,9 @@ public class SluggerDrone : DroneBasis
         
             Bullet currentBulletScript = currentBullet.GetComponent<Bullet>();
         
-            if (Main.combatStats.singleHomingSpeed > 0f)
-            {
-                currentBulletScript.SetupEnemyList(_enemyList);
-
-                currentBulletScript.SetupHoming(Main.combatStats.singleHomingSpeed);
-            }
-
-            if (Main.combatStats.singleBounceAmount > 0)
-            {
-                currentBulletScript.SetupEnemyList(_enemyList);
-            }
-
-            if (Main.combatStats.singleArePenetrating == true)
-            {
-                currentBulletScript.SetupPenetrating();
-            }
+            currentBulletScript.CheckAndSetupEffects();
             
-            currentBulletScript.Setup(damage, bulletSpeed);
+            currentBulletScript.Setup(damage, bulletSpeed, _enemyList);
         }          
     }
     
