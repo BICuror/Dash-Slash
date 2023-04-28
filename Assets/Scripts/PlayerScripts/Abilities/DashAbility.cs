@@ -22,7 +22,7 @@ public class DashAbility : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
 
-        Main.playerAbility.AbilityActivated += Dash;
+        Main.playerAbility.AbilityActivated.AddListener(Dash);
     }
 
     public void Dash(Vector3 direction)

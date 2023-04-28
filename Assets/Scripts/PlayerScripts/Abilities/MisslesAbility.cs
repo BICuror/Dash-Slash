@@ -18,18 +18,18 @@ public class MisslesAbility : MonoBehaviour
 
     public void ObtainAbility()
     {
-        Main.playerAbility.AbilityActivated += _ => Activate();
+        Main.playerAbility.AbilityActivated.AddListener(Activate);
     }
 
     public void RemoveAbility()
     {
-        Main.playerAbility.AbilityActivated -= _ => Activate();
+        Main.playerAbility.AbilityActivated.RemoveListener(Activate);
     }
 
     public void SetMissleDamage(float damage) => _missleDamage = damage;
     public void SetMissleAmount(int amount) => _missleAmount = amount;
 
-    private void Activate()
+    private void Activate(Vector3 direction)
     {
         float delay = _abilityDuration / _missleAmount;
 

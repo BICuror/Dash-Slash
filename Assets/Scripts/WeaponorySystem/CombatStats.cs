@@ -44,9 +44,9 @@ public sealed class CombatStats : MonoBehaviour
 
     private void Start()
     {
-        Main.arenaManager.StartArena += SaveBufers;
+        Main.arenaManager.ArenaStarted.AddListener(SaveBufers);
 
-        Main.arenaManager.StopArena += ImportBufers;
+        Main.arenaManager.ArenaStopped.AddListener(ImportBufers);
     }
 
     private void SaveBufers()

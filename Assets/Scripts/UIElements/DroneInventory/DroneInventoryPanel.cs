@@ -32,12 +32,12 @@ public class DroneInventoryPanel : MonoBehaviour
 
     private enum PanelState 
     {
-        infoPanel,
-        destroyPanel,
-        justificationPanel
+        InfoPanel,
+        DestroyPanel,
+        JustificationPanel
     }
 
-    private PanelState currentState = PanelState.infoPanel;
+    private PanelState currentState = PanelState.InfoPanel;
 
     public void Setup(DroneBasis newDrone)
     {
@@ -64,17 +64,17 @@ public class DroneInventoryPanel : MonoBehaviour
     {
         if (animator.GetRefreshPossibility() == true)
         {
-            if (currentState == PanelState.infoPanel)
+            if (currentState == PanelState.InfoPanel)
             {
                 Main.droneInventory.SetDrone(drone);
 
-                currentState = PanelState.destroyPanel;
+                currentState = PanelState.DestroyPanel;
             }
-            else if (currentState == PanelState.destroyPanel)
+            else if (currentState == PanelState.DestroyPanel)
             {
-                currentState = PanelState.justificationPanel;
+                currentState = PanelState.JustificationPanel;
             }
-            else if (currentState == PanelState.justificationPanel)
+            else if (currentState == PanelState.JustificationPanel)
             {
                 Main.droneInventory.DestroyPanel(drone);
             } 
@@ -87,11 +87,11 @@ public class DroneInventoryPanel : MonoBehaviour
 
     public void ClosePanel()
     {
-        if (currentState != PanelState.infoPanel)
+        if (currentState != PanelState.InfoPanel)
         {
             animator.StartRefreshing();
 
-            currentState = PanelState.infoPanel;
+            currentState = PanelState.InfoPanel;
         }   
     }
 
@@ -111,9 +111,9 @@ public class DroneInventoryPanel : MonoBehaviour
 
         switch (currentState)
         {
-            case PanelState.infoPanel: infoPanel.SetActive(true); break;
-            case PanelState.justificationPanel: justificationPanel.SetActive(true); break;
-            case PanelState.destroyPanel: destroyPanel.SetActive(true); break;
+            case PanelState.InfoPanel: infoPanel.SetActive(true); break;
+            case PanelState.JustificationPanel: justificationPanel.SetActive(true); break;
+            case PanelState.DestroyPanel: destroyPanel.SetActive(true); break;
         }
     }
 

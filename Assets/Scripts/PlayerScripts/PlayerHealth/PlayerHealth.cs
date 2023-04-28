@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class PlayerHealth : MonoBehaviour
 {
@@ -16,6 +17,10 @@ public class PlayerHealth : MonoBehaviour
 
     [SerializeField] private Animator anim;
  
+    public UnityEvent PlayerHit;
+
+    public UnityEvent PlayerDied;
+
     private void Awake() => _playerHealthStats.SetDefaultHealthPoints();
 
     private void OnEnable() => GiveInvincibilityTime(3f);
@@ -57,15 +62,17 @@ public class PlayerHealth : MonoBehaviour
     
     private void GetHurt()
     {
+        PlayerHit?.Invoke();
+
         _playerHealthStats.SetHealthPoints(_playerHealthStats.GetCurrentHealthPoints() - 1);
     }
 
     private void Lose(EnemyProfile killerProfile)
     {
+        PlayerDied.Invoke();
+        
         Main.s_defeatMenu.OpenDefeatPanel(killerProfile);
     }
-
-    
 
     public void GiveInvincibilityTime(float time)
     {
@@ -100,4 +107,6 @@ public class PlayerHealth : MonoBehaviour
     {
         isInvisible = false;
     }
+
+    public bool IsVinsible() => !isInvisible;
 }

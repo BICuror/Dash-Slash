@@ -21,9 +21,9 @@ public class ZoneSpawner : MonoBehaviour
 
     private void Awake()
     {
-        Main.arenaManager.StartArena += StartSpawinig;
+        Main.arenaManager.ArenaStarted.AddListener(StartSpawinig);
 
-        Main.arenaManager.StopArena += StopSpawinig;
+        Main.arenaManager.ArenaStopped.RemoveListener(StopSpawinig);
 
         currentZone = Instantiate(zoneObject, Vector3.zero, Quaternion.identity).GetComponent<Zone>();
 

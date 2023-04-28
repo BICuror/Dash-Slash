@@ -55,4 +55,6 @@ public static class Main
     public static SelectionStorage s_selectionStorage;
 
     public static BossHealthBar s_bossHealthBar;
+
+    public static SoundManager soundManager;
 }

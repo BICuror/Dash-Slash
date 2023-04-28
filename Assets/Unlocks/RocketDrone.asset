@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: RocketDrone
   m_EditorClassIdentifier: 
   _unlockableKey: RocketDrone
-  Price: 10
+  Price: 15
   Drone: {fileID: 7431175957364974043, guid: c1af04e4b42f85b438702c6932212806, type: 3}

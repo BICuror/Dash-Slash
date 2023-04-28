@@ -8,11 +8,11 @@ public class FlamethrowerDrone : DroneBasis
 
     [SerializeField] private GameObject[] _flames;
 
-    [SerializeField] private float bulletSpeed;
+    [SerializeField] private float _bulletSpeed;
 
     [SerializeField] private float _lifetime;
 
-    [Range(0f, 128f)] [SerializeField] private float shootingOffset;
+    [Range(0f, 128f)] [SerializeField] private float _shootingOffset;
 
     protected override void DoTask()
     {
@@ -22,11 +22,11 @@ public class FlamethrowerDrone : DroneBasis
 
             GameObject currentBullet = Instantiate(_flames[Random.Range(0, _flames.Length)], this.gameObject.transform.position, Quaternion.Euler(0, 0, rotation));
         
-            currentBullet.transform.right = _enemyList.GetClosestEnemy(transform.position).position - this.transform.position + new Vector3(Random.Range(-shootingOffset, shootingOffset), Random.Range(-shootingOffset, shootingOffset), 0f);
+            currentBullet.transform.right = _enemyList.GetClosestEnemy(transform.position).position - this.transform.position + new Vector3(Random.Range(-_shootingOffset, _shootingOffset), Random.Range(-_shootingOffset, _shootingOffset), 0f);
         
             currentBullet.GetComponent<FlameBullet>().SetLifetime(_lifetime);
 
-            currentBullet.GetComponent<Rigidbody2D>().AddForce(currentBullet.transform.right * bulletSpeed, ForceMode2D.Impulse);
+            currentBullet.GetComponent<Rigidbody2D>().AddForce(currentBullet.transform.right * _bulletSpeed, ForceMode2D.Impulse);
         }          
     }
     
@@ -34,13 +34,13 @@ public class FlamethrowerDrone : DroneBasis
     {
         int level = GetLevel();
 
-        /*switch(level)
+        switch(level)
         {
             case 2: restoringTime -= 0.07f; break; 
-            case 3: bulletSpeed += 2f; break;
-            case 4: damage += 1f; break;
-            case 5: restoringTime -= 0.1f; break;
+            case 3: _shootingOffset = 1f; break;
+            case 4: _shootingOffset = 0f; break;
+            case 5: _bulletSpeed += 3f; break;
             default: Debug.LogError("Wrong upgrade in " + gameObject.name); break;
-        }*/
+        }
     }
 }

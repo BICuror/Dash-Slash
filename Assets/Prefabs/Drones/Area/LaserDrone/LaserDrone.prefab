@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 9097687215964631187}
   - component: {fileID: 3442475400321848854}
-  - component: {fileID: 9097687215964631185}
   - component: {fileID: 9097687215964631184}
   m_Layer: 0
   m_Name: LaserDrone
@@ -51,22 +50,6 @@ MonoBehaviour:
   laserBeam: {fileID: 8888313829999163212, guid: 0aa4ecb4d71741f488bffa473932dd79, type: 3}
   damage: 8
   shootingOffset: 1
---- !u!58 &9097687215964631185
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9097687215964631196}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.5
 --- !u!212 &9097687215964631184
 SpriteRenderer:
   m_ObjectHideFlags: 0

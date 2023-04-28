@@ -30,7 +30,7 @@ public class UpgradablePerkInventoryPanel : PerkInventoryPanel
 
         _leveSliderImage.fillAmount = GetPerkData().Perk.GetLevel() / 3f;
 
-        GetPerkData().Perk.SetUpgradeDescription(_descriptionTextField);
+        GetPerkData().Perk.SetDescription(_descriptionTextField);
     }
 
     private void OnEnable() => UpdatePanel();

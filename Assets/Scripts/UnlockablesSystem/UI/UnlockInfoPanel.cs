@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using System;
+using UnityEngine.Events;
 
 public class UnlockInfoPanel : MonoBehaviour
 {
@@ -36,6 +37,8 @@ public class UnlockInfoPanel : MonoBehaviour
     [SerializeField] private UnlockPointsCounter _unlockPoints;
 
     [SerializeField] private Animator _anim;
+
+    public UnityEvent UnlockedSomething;
 
     private void Awake() 
     {
@@ -164,6 +167,8 @@ public class UnlockInfoPanel : MonoBehaviour
         _unlockable.Unlock();
 
         DisplayUnlocked();
+
+        UnlockedSomething.Invoke();
 
         UnlockButton[] buttons = FindObjectsOfType<UnlockButton>();
 

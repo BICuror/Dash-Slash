@@ -10,6 +10,8 @@ public sealed class HealthUp : PerkBasis
     public override void Obtain()
     {
         _playerHealthStats.SetMaxHealthPoints(_playerHealthStats.GetMaxHealthPoints() + 1);
+
+        FindObjectOfType<PlayerHealthUI>().IncreaseHp();
     }
 
     public override void Remove()

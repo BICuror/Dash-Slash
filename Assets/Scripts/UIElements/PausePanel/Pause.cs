@@ -26,9 +26,8 @@ public class Pause : MonoBehaviour
 
     public void ClosePauseMenu()
     {
-        Debug.Log("BLUATT SUKA YIA EBAL");
-
-        pausePanel.Play("PausePanelClose");
+        if (Main.arenaManager.ArenaIsActive()) pausePanel.Play("PausePanelClose");
+        else Unpause();
     }
 
     public void Unpause()

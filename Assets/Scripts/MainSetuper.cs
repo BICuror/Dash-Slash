@@ -56,6 +56,8 @@ public class MainSetuper : MonoBehaviour
 
         Main.s_bossHealthBar = FindObjectOfType<BossHealthBar>();
 
+        Main.soundManager = FindObjectOfType<SoundManager>();
+
         Main.playerTransform = Main.playerMovment?.transform;
 
         Destroy(gameObject);

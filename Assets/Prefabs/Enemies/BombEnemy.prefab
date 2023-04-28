@@ -76,12 +76,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -1147401495359466748, guid: 4d2e9f636f07bf34084c68d708951b6c, type: 3}
+  m_Sprite: {fileID: -914128257, guid: ea885f72f128c264ab713e2bf944b8e8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 4, y: 4}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -4914,6 +4914,7 @@ GameObject:
   - component: {fileID: -8266324254774553290}
   - component: {fileID: 6200519858802907101}
   - component: {fileID: 5942556835895165712}
+  - component: {fileID: 470369895230081028}
   m_Layer: 6
   m_Name: BombEnemy
   m_TagString: Enemy
@@ -4948,7 +4949,7 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -4990,7 +4991,31 @@ MonoBehaviour:
   _maxHealth: 25
   HitEvent:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 470369895230081028}
+        m_TargetAssemblyTypeName: SoundContainer, Assembly-CSharp
+        m_MethodName: PlaySound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 3715304218839396902}
+        m_TargetAssemblyTypeName: EnemyStatus, Assembly-CSharp
+        m_MethodName: HighlightEnemy
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   DeathEvent:
     m_PersistentCalls:
       m_Calls:
@@ -5067,8 +5092,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ddb9d2203bed9b40ae53e657a29bfa6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _highlightMaterial: {fileID: 2100000, guid: 14eea6d701a4ed942a1ec0f9f09a962d, type: 2}
-  _defaultMaterial: {fileID: 2100000, guid: 43ed437d729858a409d13ceb4bbb253c, type: 2}
 --- !u!114 &-8266324254774553290
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5106,6 +5129,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d3b1b6f1a20b7442930772c16b53490, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &470369895230081028
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4105689339622157090}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2dec447a626fe34f8b2b8c2fab5a0f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _soundsToPlay:
+  - {fileID: 8300000, guid: fea2abf6ac9bc924ca56716596e7bdf2, type: 3}
+  - {fileID: 8300000, guid: dd7ab37a6b20d2e4f81c28a1939a9e7c, type: 3}
+  - {fileID: 8300000, guid: 0ed0016e633739343aca2a1ff03539b2, type: 3}
+  - {fileID: 8300000, guid: d8c4700f969d7fd45ac678bab8c0aaae, type: 3}
+  _playOnAwake: 0
 --- !u!1 &9014730843160106325
 GameObject:
   m_ObjectHideFlags: 0

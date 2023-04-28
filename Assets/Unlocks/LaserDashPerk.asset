@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: LaserDashPerk
   m_EditorClassIdentifier: 
   _unlockableKey: LaserDashPerk
-  Price: 15
+  Price: 10
   Perk: {fileID: 11400000, guid: 4e0987ddc7881bc4a8ff40760d76dd05, type: 2}

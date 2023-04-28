@@ -57,7 +57,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.19933125
+  m_Radius: 0.23344658
 --- !u!212 &3188294271240078762
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -99,7 +99,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: b1e455c2d8275ca408c01bea9577b268, type: 3}
+  m_Sprite: {fileID: 356933835, guid: ea885f72f128c264ab713e2bf944b8e8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -4907,7 +4907,7 @@ MonoBehaviour:
   _acceleration: 0
   _dumping: 0
   _isKnockbackable: 0
-  _moveBehaviour: {fileID: 11400000, guid: 58b3612ff1dc8b54fa442857d23cbbf9, type: 2}
+  _moveBehaviour: {fileID: 11400000, guid: 610878c65e151c549baba5b614742778, type: 2}
   _rotationBehaviour: {fileID: 11400000, guid: 7f41d570c7b0c2849bc06726a51e5e09, type: 2}
 --- !u!199 &5122729603938887304
 ParticleSystemRenderer:

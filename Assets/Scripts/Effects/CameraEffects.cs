@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public sealed class CameraEffects : MonoBehaviour
 {
@@ -36,6 +37,11 @@ public sealed class CameraEffects : MonoBehaviour
 
     private void Start()
     {
+        UseSpecialEffectsBySettings();
+    }
+
+    public void UseSpecialEffectsBySettings()
+    {
         if (PlayerPrefs.HasKey("UseSpecialEffects"))
         {   
             bool useSpecialEffects = (PlayerPrefs.GetInt("UseSpecialEffects") == 1);
@@ -49,6 +55,10 @@ public sealed class CameraEffects : MonoBehaviour
         _dashPostprocessingAnimator.gameObject.SetActive(state);
         _healPostprocessingAnimator.gameObject.SetActive(state);
         _hitPostprocessingAnimator.gameObject.SetActive(state);
+
+        _dashPostprocessingAnimator.GetComponent<Volume>().weight = 0f;
+        _healPostprocessingAnimator.GetComponent<Volume>().weight = 0f;
+        _hitPostprocessingAnimator.GetComponent<Volume>().weight = 0f;
     }
 
     private void Awake()

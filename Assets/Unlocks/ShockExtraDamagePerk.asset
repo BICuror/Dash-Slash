@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: ShockExtraDamagePerk
   m_EditorClassIdentifier: 
   _unlockableKey: ShockExtraDamagePerk
-  Price: 15
+  Price: 10
   Perk: {fileID: 11400000, guid: f6c12e5929c02734899806e84e37af8c, type: 2}

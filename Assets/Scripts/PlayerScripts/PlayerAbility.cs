@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public sealed class PlayerAbility : MonoBehaviour
 {
@@ -34,8 +35,9 @@ public sealed class PlayerAbility : MonoBehaviour
 
     [SerializeField] private ParticleSystem gainChargePartSystem;
 
-    public delegate void EventHandler(Vector3 direction); 
-    public event EventHandler AbilityActivated;
+    public UnityEvent<Vector3> AbilityActivated;
+
+    public UnityEvent TouchedWallsWithActiveAbility;
 
     private void OnEnable()
     {
@@ -48,13 +50,11 @@ public sealed class PlayerAbility : MonoBehaviour
         UpdateTrail();
 
         StartCoroutine(IncreaseFillAmount());
-        
-        AbilityActivated += _ => Main.cameraEffects.StartSmallScreenShake();
     }
 
     public void ActivateAbility(Vector3 activationDirection)
     {
-        if (abilityIsActive == false && currentAbilityCharges > 0)
+        if (abilityIsActive == false && currentAbilityCharges > 0 && Time.timeScale > 0)
         {
             currentAbilityCharges--; 
 
@@ -154,4 +154,9 @@ public sealed class PlayerAbility : MonoBehaviour
 
     public void SetMaxAbilityCharge(int value) => maxAbilityCharges += value;
     public void IncreaseRechargeSpeed(float value) => abilityRechargeSpeed += value;
+
+    private void OnCollisionEnter2D(Collision2D other) 
+    {
+        if (other.gameObject.CompareTag("Borders") && abilityIsActive) TouchedWallsWithActiveAbility.Invoke();
+    }
 }

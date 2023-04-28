@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: GravitoneDrone
   m_EditorClassIdentifier: 
   _unlockableKey: GravitoneDrone
-  Price: 10
+  Price: 5
   Drone: {fileID: 1219967766506767294, guid: 7ee600b7f4ced95488b2cf9e316cdd3d, type: 3}

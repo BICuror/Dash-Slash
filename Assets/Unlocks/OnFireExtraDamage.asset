@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: OnFireExtraDamage
   m_EditorClassIdentifier: 
   _unlockableKey: OnFire
-  Price: 15
+  Price: 10
   Perk: {fileID: 11400000, guid: 7e4a9e8f4ebe4a44fa99c0403fad1564, type: 2}

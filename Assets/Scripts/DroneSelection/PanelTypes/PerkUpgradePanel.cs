@@ -25,9 +25,9 @@ public class PerkUpgradePanel : SelectionPanel
 
     [SerializeField] private Image shineImage;
 
-    [SerializeField] private ParticleSystemRenderer partSystem;
-
     [SerializeField] private Image icon;
+
+    [SerializeField] private Image _shineReplacment;
 
     private PerkData _currentPerkData;
 
@@ -61,12 +61,17 @@ public class PerkUpgradePanel : SelectionPanel
 
     private void SetupVisual()
     {
-        if (_currentPerkData.Type == DroneType.None) Destroy(shineImage);
+        if (_currentPerkData.Type == DroneType.None) 
+        {
+            Destroy(shineImage);
+        
+            Destroy(_shineReplacment);
+        }
         else
         {
             shineImage.material = Main.droneSelector.gameObject.GetComponent<UIMaterialFactory>().GetPanelMaterial(_currentPerkData.Type, 0);
-
-            ///partSystem.material = Main.droneSelector.gameObject.GetComponent<UIMaterialFactory>().GetParticleMaterial((int)(drone.GetDroneType()));
+        
+            _shineReplacment.material = Main.droneSelector.gameObject.GetComponent<UIMaterialFactory>().GetParticleMaterial(_currentPerkData.Type);
         }
     }
     protected override void Select()

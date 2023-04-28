@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: 8314632755198988772}
   - component: {fileID: -1819889328272341202}
   - component: {fileID: -1607198914637621588}
+  - component: {fileID: 5710067745355175423}
   m_Layer: 6
   m_Name: DrifterEnemy
   m_TagString: Enemy
@@ -120,6 +121,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 5710067745355175423}
+        m_TargetAssemblyTypeName: SoundContainer, Assembly-CSharp
+        m_MethodName: PlaySound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   DeathEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -135,10 +148,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5809d595075951b418f5385bad4191e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _moveSpeed: 35
-  _rotationSpeed: 200
-  _acceleration: 1.005
-  _dumping: 0.007
+  _moveSpeed: 10
+  _rotationSpeed: 250
+  _acceleration: 1.001
+  _dumping: 0.15
   _isKnockbackable: 1
   _moveBehaviour: {fileID: 11400000, guid: 610878c65e151c549baba5b614742778, type: 2}
   _rotationBehaviour: {fileID: 11400000, guid: cc60d02cd62102d4cafe431d546194c3, type: 2}
@@ -209,6 +222,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d3b1b6f1a20b7442930772c16b53490, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &5710067745355175423
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2923577786412957686}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2dec447a626fe34f8b2b8c2fab5a0f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _soundsToPlay:
+  - {fileID: 8300000, guid: fea2abf6ac9bc924ca56716596e7bdf2, type: 3}
+  - {fileID: 8300000, guid: dd7ab37a6b20d2e4f81c28a1939a9e7c, type: 3}
+  - {fileID: 8300000, guid: 0ed0016e633739343aca2a1ff03539b2, type: 3}
+  - {fileID: 8300000, guid: d8c4700f969d7fd45ac678bab8c0aaae, type: 3}
+  _playOnAwake: 0
 --- !u!1 &3910606694432698109
 GameObject:
   m_ObjectHideFlags: 0
@@ -285,7 +316,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -7537196482120660328, guid: 4d2e9f636f07bf34084c68d708951b6c, type: 3}
+  m_Sprite: {fileID: -624996043, guid: ea885f72f128c264ab713e2bf944b8e8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1328,7 +1359,7 @@ ParticleSystem:
     m_BurstCount: 0
     m_Bursts: []
   SizeModule:
-    enabled: 0
+    enabled: 1
     curve:
       serializedVersion: 2
       minMaxState: 1
@@ -1339,22 +1370,22 @@ ParticleSystem:
         m_Curve:
         - serializedVersion: 3
           time: 0
-          value: 0
-          inSlope: 0
-          outSlope: 1
+          value: 1
+          inSlope: -2
+          outSlope: -2
           tangentMode: 0
           weightedMode: 0
-          inWeight: 0.33333334
-          outWeight: 0.33333334
+          inWeight: 0
+          outWeight: 0
         - serializedVersion: 3
           time: 1
-          value: 1
-          inSlope: 1
+          value: 0
+          inSlope: 0
           outSlope: 0
           tangentMode: 0
           weightedMode: 0
-          inWeight: 0.33333334
-          outWeight: 0.33333334
+          inWeight: 0
+          outWeight: 0
         m_PreInfinity: 2
         m_PostInfinity: 2
         m_RotationOrder: 4
@@ -9950,7 +9981,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6003585418883052550}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.183, y: -0.092, z: 0}
+  m_LocalPosition: {x: -0.2, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

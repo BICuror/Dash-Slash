@@ -121,7 +121,7 @@ public class DroneInventory : MonoBehaviour
             Destroy(parentTransform.GetChild(i).gameObject);
         }
 
-        //Main.droneContainer.DestroyDrone(drone.GetDroneData(), drone.GetLevel());
+        Main.droneContainer.DestroyDrone(drone.GetDroneData(), drone.GetLevel());
 
         SetupSlots();
 
@@ -139,7 +139,6 @@ public class DroneInventory : MonoBehaviour
             nameTextField.text = "";
             descriptionTextField.text = "";
             levelTextField.text = "";
-            upgradeTextField.text = ""; 
 
             presentationManager.StopSession();
         }
@@ -160,27 +159,11 @@ public class DroneInventory : MonoBehaviour
             levelTextField.text = displayedDrone.GetLevel().ToString(); 
 
             SetColor(displayedDrone.gameObject.GetComponent<SpriteRenderer>().material.color);
-
-            DisplayUpgrades();
         }
     }
 
     private void SetColor(Color newColor)
     {
         levelTextField.color = newColor;
-    }
-
-    private void DisplayUpgrades()
-    {   /*
-        string upgradesText = "";
-
-        for(int i = 1; i < 5; i++)
-        {
-            upgradesText += (i).ToString() + " > " + (i + 1).ToString() + ": " + displayedDrone.GetUpgradeDescription(i) + "@";
-        }
-
-        upgradesText = upgradesText.Replace("@", System.Environment.NewLine);
-
-        upgradeTextField.text = upgradesText;*/
     }
 }

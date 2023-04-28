@@ -5158,6 +5158,7 @@ GameObject:
   - component: {fileID: 1865454510143332163}
   - component: {fileID: 5341887051734416271}
   - component: {fileID: -834404507991372045}
+  - component: {fileID: 6279116704371633798}
   m_Layer: 6
   m_Name: ShieldedEnemy
   m_TagString: Enemy
@@ -5260,6 +5261,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 6279116704371633798}
+        m_TargetAssemblyTypeName: SoundContainer, Assembly-CSharp
+        m_MethodName: PlaySound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   DeathEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -5322,7 +5335,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8c2ed045b8c65549b9a03e95cc15453, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _currentEnemyProfile: {fileID: 11400000, guid: 39851b2cfbf530c46bcad8337c873106, type: 2}
+  _currentEnemyProfile: {fileID: 11400000, guid: 2d434a2da3eec704bac59cdd88bb67aa, type: 2}
 --- !u!114 &5341887051734416271
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5347,6 +5360,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d3b1b6f1a20b7442930772c16b53490, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &6279116704371633798
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4760951386187051345}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2dec447a626fe34f8b2b8c2fab5a0f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _soundsToPlay:
+  - {fileID: 8300000, guid: fea2abf6ac9bc924ca56716596e7bdf2, type: 3}
+  - {fileID: 8300000, guid: dd7ab37a6b20d2e4f81c28a1939a9e7c, type: 3}
+  - {fileID: 8300000, guid: 0ed0016e633739343aca2a1ff03539b2, type: 3}
+  - {fileID: 8300000, guid: d8c4700f969d7fd45ac678bab8c0aaae, type: 3}
+  _playOnAwake: 0
 --- !u!1 &6684936825320251482
 GameObject:
   m_ObjectHideFlags: 0
@@ -5421,7 +5452,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: c217a3be2eb3a9642b229972317e1cc1, type: 3}
+  m_Sprite: {fileID: 177624983, guid: ea885f72f128c264ab713e2bf944b8e8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 3916890421612893086}
   - component: {fileID: 1219967766506767294}
-  - component: {fileID: 3916890421612893084}
   - component: {fileID: 3916890421612893085}
   m_Layer: 0
   m_Name: GravitoneDrone
@@ -53,22 +52,6 @@ MonoBehaviour:
   bulletSpeed: 10
   shootingOffset: 1
   holeMaterial: {fileID: 2100000, guid: f2c93501dce6e5548afab5fda5c49a87, type: 2}
---- !u!58 &3916890421612893084
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3916890421612893073}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.5
 --- !u!212 &3916890421612893085
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -110,12 +93,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 2192450021786810173, guid: 4d2e9f636f07bf34084c68d708951b6c, type: 3}
+  m_Sprite: {fileID: 2208703988740019828, guid: d88bad8639fd61d4abf62d38bf2bab6f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 10, y: 10}
+  m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1

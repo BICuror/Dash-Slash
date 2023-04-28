@@ -4,7 +4,7 @@ using UnityEngine;
 
 public sealed class MoveToRandomPointBehaviour : MoveBehaviour
 {
-    [Range(0f, 2f)] [SerializeField] private float _minimalDistance;
+    [Range(0f, 2f)] [SerializeField] private float _minimalDistance = 1f;
 
     private Vector3 _targetMovePosition;
     
@@ -12,17 +12,14 @@ public sealed class MoveToRandomPointBehaviour : MoveBehaviour
     {
         if (Vector3.Distance(enemyTransform.position, _targetMovePosition) < _minimalDistance)
         {
-            _targetMovePosition = GetRandomPosition();
+            SetNewRandomPosition();
         }
         
         return _targetMovePosition;
     }
 
-    private Vector3 GetRandomPosition()
+    public void SetNewRandomPosition()
     {
-        float x = Random.Range(-Main.roomSettings.GetWidth(), Main.roomSettings.GetWidth());
-        float y = Random.Range(-Main.roomSettings.GetHeight(), Main.roomSettings.GetHeight());
-
-        return new Vector3(x, y, 0f);
+        _targetMovePosition = Main.roomSettings.GetRandomRoomPosition();
     }
 }

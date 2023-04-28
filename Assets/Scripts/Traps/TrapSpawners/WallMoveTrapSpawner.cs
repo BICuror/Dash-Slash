@@ -6,7 +6,7 @@ public sealed class WallMoveTrapSpawner : DefaultTrapSpawner
 
     [SerializeField] private GameObject _verticalWall;
 
-    public override void Spawn(Vector3 spawnPosition)
+    public override void Spawn(Vector3 spawnPosition, float difficulty)
     {
         GameObject wallMoveTrapToSpawn;
 

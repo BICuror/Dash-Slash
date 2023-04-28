@@ -8,7 +8,7 @@ public class AbilityJoystick : Joystick
     protected override void Start()
     {
         base.Start();
-        background.gameObject.SetActive(false);
+        base.OnPointerDown(new PointerEventData(null));
     }
 
     public override void OnPointerDown(PointerEventData eventData)

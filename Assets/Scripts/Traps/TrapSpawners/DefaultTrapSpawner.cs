@@ -5,8 +5,8 @@ public class DefaultTrapSpawner : MonoBehaviour
     [SerializeField] private float _delayAfterTrap;
 
     [Range(0f, 100f)] [SerializeField] private float _appearanceChance;
-    
-    public virtual void Spawn(Vector3 spawnPosition){}
+ 
+    public virtual void Spawn(Vector3 spawnPosition, float difficulty){}
 
     public float GetDelayTime() => _delayAfterTrap;
 

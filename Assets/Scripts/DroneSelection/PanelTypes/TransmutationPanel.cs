@@ -21,6 +21,8 @@ public class TransmutationPanel : SelectionPanelWithPresentation
 
     [SerializeField] private Image _fromShine;
 
+    [SerializeField] private Image _fromShineReplacment;
+
     private PresentationManager _fromPresentationManager;
 
     private DroneBasis _fromDrone;
@@ -34,6 +36,8 @@ public class TransmutationPanel : SelectionPanelWithPresentation
     [SerializeField] private Image _toPresentationImage;
 
     [SerializeField] private Image _toShine;
+
+    [SerializeField] private Image _toShineReplacment;
 
     private PresentationManager _toPresentationManager;
 
@@ -76,6 +80,8 @@ public class TransmutationPanel : SelectionPanelWithPresentation
 
         _fromShine.material = Main.droneSelector.gameObject.GetComponent<UIMaterialFactory>().GetPanelMaterial(_fromDrone.GetDroneData().Type, 2);
 
+        _fromShineReplacment.material = Main.droneSelector.gameObject.GetComponent<UIMaterialFactory>().GetParticleMaterial(_fromDrone.GetDroneData().Type);  
+
         //////////////////////////////////////////////////////////////////////////////////////////
 
         CreatePresentation(_toDrone, _fromDrone.GetLevel() + _additionalLevels, 2);
@@ -85,6 +91,8 @@ public class TransmutationPanel : SelectionPanelWithPresentation
         _toPresentationImage.material = GetPresentationMaterial();
 
         _toShine.material = Main.droneSelector.gameObject.GetComponent<UIMaterialFactory>().GetPanelMaterial(_toDrone.GetDroneData().Type, 1);
+
+        _toShineReplacment.material = Main.droneSelector.gameObject.GetComponent<UIMaterialFactory>().GetParticleMaterial(_toDrone.GetDroneData().Type);  
 
         SetupParticleSystem(_fromShine.material.GetColor("MainColor"), _toShine.material.GetColor("MainColor"));
     }

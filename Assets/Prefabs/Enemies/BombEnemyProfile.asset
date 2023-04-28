@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: Bomber
   Description: Explodes on death
-  Icon: {fileID: -1147401495359466748, guid: 4d2e9f636f07bf34084c68d708951b6c, type: 3}
+  Icon: {fileID: -914128257, guid: ea885f72f128c264ab713e2bf944b8e8, type: 3}

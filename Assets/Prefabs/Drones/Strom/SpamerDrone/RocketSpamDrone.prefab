@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5630504948505767022}
-  - component: {fileID: 5630504948505767020}
   - component: {fileID: 5630504948505767021}
   - component: {fileID: 7431175957364974043}
   m_Layer: 0
@@ -34,22 +33,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!58 &5630504948505767020
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5630504948505767009}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.5
 --- !u!212 &5630504948505767021
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -115,8 +98,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _droneData: {fileID: 11400000, guid: 0533af1f612024b47a5097a1aaa60b71, type: 2}
-  restoringTime: 5
+  restoringTime: 4.7
   bullet: {fileID: 5809934848794583456, guid: ef9a619ffc3e55a43951039bdd19d52c, type: 3}
-  damage: 3
+  damage: 7
   shotingCycles: 8
   spamBulletSpeed: 4

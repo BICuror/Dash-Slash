@@ -12,7 +12,7 @@ public sealed class ShockEffectManager : MonoBehaviour
     
     private MoveAgent _moveAgent;
 
-    public void Start()
+    private void Awake()
     {
         _moveAgent = GetComponent<MoveAgent>();
 

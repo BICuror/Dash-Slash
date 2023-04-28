@@ -6,7 +6,7 @@ public sealed class CameraManager : MonoBehaviour
 
     private Transform _target;
     
-    private void Update()
+    private void FixedUpdate()
     {
         gameObject.transform.position = Vector3.Lerp(transform.position, _target.position, _transitionSpeed);
     }

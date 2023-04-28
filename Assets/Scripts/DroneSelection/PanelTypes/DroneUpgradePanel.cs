@@ -25,8 +25,8 @@ public sealed class DroneUpgradePanel : SelectionPanelWithPresentation
     [SerializeField] private Image _presentationImage;
     
     [SerializeField] private Image _shineImage;
-    
-    [SerializeField] private ParticleSystemRenderer _partSystem;
+
+    [SerializeField] private Image _shineReplacment;
 
     private DroneBasis _drone;
 
@@ -73,7 +73,7 @@ public sealed class DroneUpgradePanel : SelectionPanelWithPresentation
     {
         _shineImage.material = Main.droneSelector.gameObject.GetComponent<UIMaterialFactory>().GetPanelMaterial(_drone.GetDroneData().Type, 0);
 
-        _partSystem.material = Main.droneSelector.gameObject.GetComponent<UIMaterialFactory>().GetParticleMaterial(_drone.GetDroneData().Type);
+        _shineReplacment.material = Main.droneSelector.gameObject.GetComponent<UIMaterialFactory>().GetParticleMaterial(_drone.GetDroneData().Type);
     }
 
     protected override void Select()

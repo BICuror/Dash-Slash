@@ -11,6 +11,7 @@ public class DuplicationPanel : SelectionPanelWithPresentation
     [SerializeField] private Image _presentationImage;
     [SerializeField] private Image _shineImage;
     [SerializeField] private ParticleSystemRenderer _particleSystem;
+    [SerializeField] private Image _shineReplacment;
 
     private DroneBasis _drone;
 
@@ -41,13 +42,13 @@ public class DuplicationPanel : SelectionPanelWithPresentation
         _shineImage.material = Main.droneSelector.gameObject.GetComponent<UIMaterialFactory>().GetPanelMaterial(_drone.GetDroneData().Type, 0);
 
         _particleSystem.material = Main.droneSelector.gameObject.GetComponent<UIMaterialFactory>().GetParticleMaterial(_drone.GetDroneData().Type);
+
+        _shineReplacment.material = Main.droneSelector.gameObject.GetComponent<UIMaterialFactory>().GetParticleMaterial(_drone.GetDroneData().Type);
     }
     
     private void PlaceDrone()
     {
         GameObject currentDrone = Instantiate(_drone.gameObject, new Vector3(0f, 4f, 0f), Quaternion.identity);
-
-        currentDrone.GetComponent<DroneBasis>().UpgradeToLevel(_drone.GetLevel());
 
         Main.droneContainer.AddDrone(currentDrone);
 

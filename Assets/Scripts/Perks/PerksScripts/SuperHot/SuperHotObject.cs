@@ -4,9 +4,9 @@ public sealed class SuperHotObject : MonoBehaviour
 {
     private void Awake()
     {
-        Main.arenaManager.StartArena += ActivatePerk;
+        Main.arenaManager.ArenaStarted.AddListener(ActivatePerk);
 
-        Main.arenaManager.StopArena += StopPerk;
+        Main.arenaManager.ArenaStopped.AddListener(StopPerk);
     }
 
     public void ActivatePerk()

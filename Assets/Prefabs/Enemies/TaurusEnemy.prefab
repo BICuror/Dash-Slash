@@ -4842,6 +4842,7 @@ GameObject:
   - component: {fileID: 3909094254930934329}
   - component: {fileID: 7418057454631365360}
   - component: {fileID: -8495843845750332939}
+  - component: {fileID: 136336195440657791}
   m_Layer: 11
   m_Name: TaurusEnemy
   m_TagString: Enemy
@@ -4896,7 +4897,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 0.7
+  m_Mass: 0.3
   m_LinearDrag: 0
   m_AngularDrag: 0
   m_GravityScale: 0
@@ -4918,7 +4919,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dashDuration: 100
-  dashSpeed: 10
+  dashSpeed: 7
 --- !u!114 &7064353898316926178
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4928,13 +4929,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1988322148908078509}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5809d595075951b418f5385bad4191e6, type: 3}
+  m_Script: {fileID: 11500000, guid: 05d4cef34d7ec8a41b79419e11f5de98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _moveSpeed: 4
-  _rotationSpeed: 140
+  _rotationSpeed: 200
   _acceleration: 1.005
-  _dumping: 0
+  _dumping: 0.01
   _isKnockbackable: 0
   _moveBehaviour: {fileID: 11400000, guid: 54e002e50565dcf4caf083eda7899c61, type: 2}
   _rotationBehaviour: {fileID: 11400000, guid: cc60d02cd62102d4cafe431d546194c3, type: 2}
@@ -4969,6 +4970,18 @@ MonoBehaviour:
       - m_Target: {fileID: 4691800032050983339}
         m_TargetAssemblyTypeName: UnityEngine.ParticleSystem, UnityEngine
         m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 136336195440657791}
+        m_TargetAssemblyTypeName: SoundContainer, Assembly-CSharp
+        m_MethodName: PlaySound
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5023,8 +5036,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ddb9d2203bed9b40ae53e657a29bfa6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _highlightMaterial: {fileID: 2100000, guid: 14eea6d701a4ed942a1ec0f9f09a962d, type: 2}
-  _defaultMaterial: {fileID: 2100000, guid: 43ed437d729858a409d13ceb4bbb253c, type: 2}
 --- !u!114 &-4490073112444729630
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5120,6 +5131,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d3b1b6f1a20b7442930772c16b53490, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &136336195440657791
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1988322148908078509}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2dec447a626fe34f8b2b8c2fab5a0f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _soundsToPlay:
+  - {fileID: 8300000, guid: fea2abf6ac9bc924ca56716596e7bdf2, type: 3}
+  - {fileID: 8300000, guid: dd7ab37a6b20d2e4f81c28a1939a9e7c, type: 3}
+  - {fileID: 8300000, guid: 0ed0016e633739343aca2a1ff03539b2, type: 3}
+  - {fileID: 8300000, guid: d8c4700f969d7fd45ac678bab8c0aaae, type: 3}
+  _playOnAwake: 0
 --- !u!1 &2357247187018713272
 GameObject:
   m_ObjectHideFlags: 0
@@ -10155,7 +10184,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -860468679390908754, guid: 4d2e9f636f07bf34084c68d708951b6c, type: 3}
+  m_Sprite: {fileID: -1149886791, guid: ea885f72f128c264ab713e2bf944b8e8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

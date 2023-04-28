@@ -8,15 +8,15 @@ public class GravitoneDashAbility : MonoBehaviour
 
     public void ObtainAbility()
     {
-        Main.playerAbility.AbilityActivated += _ => Activate();
+        Main.playerAbility.AbilityActivated.AddListener(Activate);
     }
 
     public void RemoveAbility()
     {
-        Main.playerAbility.AbilityActivated -= _ => Activate();
+        Main.playerAbility.AbilityActivated.RemoveListener(Activate);
     }
 
-    private void Activate()
+    private void Activate(Vector3 direction)
     {
         Instantiate(_gravitonePrefab, Main.playerTransform.position, Main.playerTransform.rotation);
     }

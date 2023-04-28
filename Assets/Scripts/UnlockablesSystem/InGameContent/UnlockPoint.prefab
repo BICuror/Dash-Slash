@@ -77,7 +77,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 2192450021786810173, guid: 4d2e9f636f07bf34084c68d708951b6c, type: 3}
+  m_Sprite: {fileID: 2208703988740019828, guid: d88bad8639fd61d4abf62d38bf2bab6f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -124,7 +124,7 @@ MonoBehaviour:
   _rb: {fileID: 4111382592853258861}
   _speed: 3
   _rotationSpeed: 260
-  _aceleration: 1.04
+  _aceleration: 1.03
   _pointCounter: {fileID: 11400000, guid: dd05cefc9a6108644bcc2aa3bfdced98, type: 2}
   _explotionPrefab: {fileID: 3568075693293905177, guid: 67bd1b236289ea242972290dd20f264c, type: 3}
 --- !u!96 &1760862624522582233
@@ -250,4 +250,4 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.37755752
+  m_Radius: 0.15

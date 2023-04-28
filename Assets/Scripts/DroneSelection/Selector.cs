@@ -1,11 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public sealed class Selector : MonoBehaviour
 {
     [SerializeField] private Transform[] _selectionPanelSlots;
-
 
     [Header("RerollSettings")]
     [SerializeField] private RerollButton rerollButton;
@@ -20,6 +20,8 @@ public sealed class Selector : MonoBehaviour
     private int availableToUpgradeDronesCount;
 
     private List<SelectionPanel> panels; 
+
+    public UnityEvent OptionChoosen;
 
     public void ActivateSelection()
     {
@@ -42,7 +44,6 @@ public sealed class Selector : MonoBehaviour
         }
     }
 
-
     private IEnumerator CreatePanel(int index)
     {   
         yield return new WaitForSeconds(0.15f * index);
@@ -52,15 +53,14 @@ public sealed class Selector : MonoBehaviour
         panels.Add(panel.GetComponent<SelectionPanel>());
     }
 
-
     public void CloseSelector()
     {
-        Main.arenaManager.DronePickedUp();
+        OptionChoosen.Invoke();
     }
 
     public void ClosePanels()
     {
-        Main.arenaManager.InventoryClosed();
+        OptionChoosen.Invoke();
 
         animator.EndSelection();
 

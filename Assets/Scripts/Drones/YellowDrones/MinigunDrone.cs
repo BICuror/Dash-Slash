@@ -36,10 +36,10 @@ public class MinigunDrone : DroneBasis
 
         switch(level)
         {
-            case 2: restoringTime -= 0.07f; break; 
+            case 2: restoringTime -= 0.06f; break; 
             case 3: bulletSpeed += 2f; break;
             case 4: damage += 1f; break;
-            case 5: restoringTime -= 0.1f; break;
+            case 5: restoringTime -= 0.06f; break;
             default: Debug.LogError("Wrong upgrade in " + gameObject.name); break;
         }
     }

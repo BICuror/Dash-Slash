@@ -9,8 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3213243954275283429}
-  - component: {fileID: 3213243954275283428}
-  - component: {fileID: 3213243954275283431}
   - component: {fileID: 3213243954275283430}
   - component: {fileID: 2693336147430721511}
   m_Layer: 0
@@ -30,38 +28,11 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -5.6970577, y: -0.020983338, z: 0}
   m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3213243954275283428
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3213243954275283434}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bc17b30d1e23f244e942493b31811eaa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!58 &3213243954275283431
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3213243954275283434}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.5
 --- !u!212 &3213243954275283430
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -126,17 +97,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f152eb1780323743969165574cc8fdd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  droneName: Sawblade goes drrr
-  description: 
-  presentationData: {fileID: 11400000, guid: 195ab88df6c2bab409aea153be4dc94a, type: 2}
-  upgradeDescription:
-  - 
-  - 
-  - 
-  - 
-  - 
+  _droneData: {fileID: 0}
   restoringTime: 0.5
-  type: 1
   sawbladePerfab: {fileID: 5577215795449059347, guid: c464d393c83e39249b78109b4dd09101, type: 3}
   sawbladeSpeed: 8
   damage: 3

@@ -40,6 +40,11 @@ public class MoveAgent : MonoBehaviour, IStunable, IKnockbackable
 
     public void SetMoveSpeed(float speed) => _moveSpeed = speed;
 
+    public void SetBehabiouralOffset(Vector3 offset) => _behaviouralOffset = offset; 
+
+    public void SetMoveBehaviour(MoveBehaviour moveBehaviour) => _moveBehaviour = moveBehaviour;
+    public void SetRotationBehaviour(RotationBehaviour rotationBehaviour) => _rotationBehaviour = rotationBehaviour;
+
     private void FixedUpdate()
     {
         Vector3 targetPosition = _moveBehaviour.GetPosition(transform) + _behaviouralOffset;

@@ -42,7 +42,7 @@ public class PlayerHealthUI : MonoBehaviour
         
         transform.GetChild(0).rotation = Quaternion.Euler(0f, 0f, (_currentHealthPoints - 1) * -90f);
 
-        anim.Play("HealthBarSegmentDisappear");
+        if (_currentHealthPoints != 0) anim.Play("HealthBarSegmentDisappear");
     }
 
     public void IncreaseHpBarValue()

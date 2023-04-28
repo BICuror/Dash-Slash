@@ -39,7 +39,7 @@ public class Bullet : MonoBehaviour
         
         _rb.AddForce(transform.right * _speed, ForceMode2D.Impulse);
 
-        Invoke("DestroyBullet", 4f);
+        Destroy(gameObject, 4f);
     }
 
     public void CheckAndSetupEffects()
@@ -89,24 +89,18 @@ public class Bullet : MonoBehaviour
         {
             health.GetHurt(Main.combatStats.MultiplyDamage(_damage, _damageType));
             
-            if (_leftBounces > 0) 
-            {
-                Transform newTarget = _enemyList.GetClosestEnemyToEnemy(other.transform);
-            
-                if (newTarget != null) Bounce(newTarget);
-            }
-            else if (_isPenetrating == false)
+            if (_isPenetrating == false)
             {
                 DestroyBullet((this.transform.position + other.gameObject.transform.position) / 2);
             }
         
             other.gameObject.GetComponent<IKnockbackable>().KnockBack(transform.position, 2f);
         }
-        else if (other.gameObject.tag == "Borders")
+        else if (other.gameObject.CompareTag("Borders"))
         {
             if (_leftBounces > 0)
             {
-                Transform newTarget = _enemyList.GetClosestEnemyToEnemy(transform);
+                Transform newTarget = _enemyList.GetClosestEnemy(transform.position);
             
                 if (newTarget != null) Bounce(transform);
                 else DestroyBullet(transform.position);

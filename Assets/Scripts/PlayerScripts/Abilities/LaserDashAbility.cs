@@ -14,18 +14,18 @@ public class LaserDashAbility : MonoBehaviour
 
     public void ObtainAbility()
     {
-        Main.playerAbility.AbilityActivated += _ => Activate();
+        Main.playerAbility.AbilityActivated.AddListener(Activate);
     }
 
     public void RemoveAbility()
     {
-        Main.playerAbility.AbilityActivated -= _ => Activate();
+        Main.playerAbility.AbilityActivated.RemoveListener(Activate);
     }
 
     public void SetLaserDamage(float damage) => _laserDamage = damage;
     public void SetLaserOffset(float offset) => _offset = offset; 
         
-    private void Activate()
+    private void Activate(Vector3 direction)
     {
         GameObject currentLaser = Instantiate(_laserPrefab, _sourseTransform.position, _sourseTransform.rotation);
 

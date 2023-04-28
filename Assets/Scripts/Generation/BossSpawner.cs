@@ -1,12 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
-public class BossSpawner : MonoBehaviour
+public sealed class BossSpawner : MonoBehaviour
 {
     [SerializeField] private List<GameObject> _bosses;
 
     [SerializeField] private EnemyProgression _enemyProgression;
+
+    public UnityEvent BossSpawned;
 
     public void SpawnBoss()
     {
@@ -16,6 +19,8 @@ public class BossSpawner : MonoBehaviour
 
         bossHealth.MultiplyMaxHelath(_enemyProgression.GetEnemyHealth(Main.arenaManager.GetCurrentWave()));
 
-        Main.enemyList.AddEnemy(currentBoss.transform);
+        Main.enemyList.AddEnemy(currentBoss.transform);  
+        
+        BossSpawned.Invoke();
     }
 }

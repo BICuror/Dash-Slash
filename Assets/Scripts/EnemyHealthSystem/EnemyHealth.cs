@@ -66,9 +66,9 @@ public class EnemyHealth : MonoBehaviour, IDamagable
 
     public void Die() 
     {
+        DeathEvent.Invoke(transform);
+        
         Destroy(gameObject);
     }
-
-    private void OnDestroy() => DeathEvent.Invoke(transform);
 }
  

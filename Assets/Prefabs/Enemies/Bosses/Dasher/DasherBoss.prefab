@@ -4985,6 +4985,8 @@ GameObject:
   - component: {fileID: -5621377043472737367}
   - component: {fileID: 1726635593994492590}
   - component: {fileID: 6697415872667108812}
+  - component: {fileID: 2645659876512573050}
+  - component: {fileID: 8640308213814651969}
   m_Layer: 19
   m_Name: DasherBoss
   m_TagString: Enemy
@@ -5019,13 +5021,13 @@ CircleCollider2D:
   m_GameObject: {fileID: 8001155051199957164}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 6200000, guid: e512520c6e7b0554186de7453fead90d, type: 2}
+  m_Material: {fileID: 6200000, guid: 7c59b086e4d889044b94b5d359da23cd, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.0011005998}
+  m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.4691742
+  m_Radius: 0.79097784
 --- !u!50 &8783797626109673105
 Rigidbody2D:
   serializedVersion: 4
@@ -5059,11 +5061,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5809d595075951b418f5385bad4191e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _moveSpeed: 6
+  _moveSpeed: 20
   _rotationSpeed: 300
   _acceleration: 1.008
   _dumping: 0.01
-  _isKnockbackable: 1
+  _isKnockbackable: 0
   _moveBehaviour: {fileID: 11400000, guid: 58b3612ff1dc8b54fa442857d23cbbf9, type: 2}
   _rotationBehaviour: {fileID: 11400000, guid: cc60d02cd62102d4cafe431d546194c3, type: 2}
 --- !u!114 &5631537869234386382
@@ -5107,7 +5109,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8c2ed045b8c65549b9a03e95cc15453, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _currentEnemyProfile: {fileID: 11400000, guid: ed3218f55b3ce2645baef727d1c34a88, type: 2}
+  _currentEnemyProfile: {fileID: 11400000, guid: b6039568754957c49b47a4111759ff30, type: 2}
 --- !u!114 &7108313502715065588
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5120,7 +5122,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9fc21ee4d1679724080eb8986dfc268d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxHealth: 330
+  _maxHealth: 200
   OnHit:
     m_PersistentCalls:
       m_Calls:
@@ -5139,6 +5141,18 @@ MonoBehaviour:
       - m_Target: {fileID: 3055002238840367206}
         m_TargetAssemblyTypeName: UnityEngine.ParticleSystem, UnityEngine
         m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2645659876512573050}
+        m_TargetAssemblyTypeName: SoundContainer, Assembly-CSharp
+        m_MethodName: PlaySound
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5247,6 +5261,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 8640308213814651969}
+        m_TargetAssemblyTypeName: SoundContainer, Assembly-CSharp
+        m_MethodName: PlaySound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &6010315004636591357
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5287,6 +5313,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3babc3f82971c854f86a65a4dac7e49c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _moveTowardsPlayerBehaviour: {fileID: 11400000, guid: 58b3612ff1dc8b54fa442857d23cbbf9, type: 2}
+  _moveToRandomPointBehaviour: {fileID: 11400000, guid: 54e002e50565dcf4caf083eda7899c61, type: 2}
   _shootingModule: {fileID: 8529505596227230039}
   _dashModule: {fileID: 6010315004636591357}
   _anim: {fileID: 4800019888044377573}
@@ -5379,7 +5407,7 @@ ParticleSystem:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8001155051199957164}
   serializedVersion: 8
-  lengthInSec: 1.5
+  lengthInSec: 1.3
   simulationSpeed: 1
   stopAction: 2
   cullingMode: 0
@@ -10123,8 +10151,41 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a026d3cc19faa349b6aecfb65085775, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _pointsAmount: 5
+  _pointsAmount: 3
   _pointPrefab: {fileID: 4731743649149909247, guid: 9fdab5920e893ee4498735e08e25a05e, type: 3}
+--- !u!114 &2645659876512573050
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8001155051199957164}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2dec447a626fe34f8b2b8c2fab5a0f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _soundsToPlay:
+  - {fileID: 8300000, guid: fea2abf6ac9bc924ca56716596e7bdf2, type: 3}
+  - {fileID: 8300000, guid: dd7ab37a6b20d2e4f81c28a1939a9e7c, type: 3}
+  - {fileID: 8300000, guid: 0ed0016e633739343aca2a1ff03539b2, type: 3}
+  - {fileID: 8300000, guid: d8c4700f969d7fd45ac678bab8c0aaae, type: 3}
+  _playOnAwake: 0
+--- !u!114 &8640308213814651969
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8001155051199957164}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2dec447a626fe34f8b2b8c2fab5a0f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _soundsToPlay:
+  - {fileID: 8300000, guid: 2dbae4b5b9b696c4b9186914b6310fac, type: 3}
+  _playOnAwake: 0
 --- !u!1 &8985141791974059466
 GameObject:
   m_ObjectHideFlags: 0
@@ -10199,7 +10260,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -8421458170528590454, guid: 4d2e9f636f07bf34084c68d708951b6c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 978461411b313a240a10998e072afb93, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

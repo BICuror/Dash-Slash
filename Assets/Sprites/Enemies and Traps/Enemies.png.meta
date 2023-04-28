@@ -1,64 +1,7 @@
 fileFormatVersion: 2
-guid: 4d2e9f636f07bf34084c68d708951b6c
+guid: ea885f72f128c264ab713e2bf944b8e8
 TextureImporter:
-  internalIDToNameTable:
-  - first:
-      213: 2192450021786810173
-    second: Enemies_0
-  - first:
-      213: -7537196482120660328
-    second: Enemies_1
-  - first:
-      213: -860468679390908754
-    second: Enemies_2
-  - first:
-      213: -7945901444079236628
-    second: Enemies_3
-  - first:
-      213: -8421458170528590454
-    second: Enemies_4
-  - first:
-      213: -1147401495359466748
-    second: Enemies_5
-  - first:
-      213: 8414478535512612329
-    second: Enemies_6
-  - first:
-      213: 3714015224569861163
-    second: Enemies_7
-  - first:
-      213: -7844560889915226194
-    second: Enemies_8
-  - first:
-      213: 4326287474489854147
-    second: Enemies_9
-  - first:
-      213: 7877921557971618100
-    second: Enemies_10
-  - first:
-      213: 5366457973745487733
-    second: Enemies_11
-  - first:
-      213: 572134458542851419
-    second: Enemies_12
-  - first:
-      213: 5875395181630150645
-    second: Enemies_13
-  - first:
-      213: 5023289697677887148
-    second: Enemies_14
-  - first:
-      213: 1511843784806208459
-    second: Enemies_15
-  - first:
-      213: 9008768272413781845
-    second: Enemies_16
-  - first:
-      213: 615673380907259118
-    second: Enemies_17
-  - first:
-      213: -1010674888820381983
-    second: Enemies_18
+  internalIDToNameTable: []
   externalObjects: {}
   serializedVersion: 12
   mipmaps:
@@ -104,7 +47,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 16
+  spritePixelsToUnits: 64
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -136,7 +79,7 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Standalone
-    maxTextureSize: 256
+    maxTextureSize: 32
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -148,7 +91,7 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Android
-    maxTextureSize: 256
+    maxTextureSize: 32
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -160,7 +103,7 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Server
-    maxTextureSize: 256
+    maxTextureSize: 32
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -172,7 +115,7 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: WebGL
-    maxTextureSize: 256
+    maxTextureSize: 32
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -186,13 +129,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Enemies_0
+      name: dasher_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 48
-        width: 16
-        height: 16
+        x: 230
+        y: 126
+        width: 18
+        height: 25
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -200,8 +143,386 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d377660cda52d6e10800000000000000
-      internalID: 2192450021786810173
+      spriteID: 34109bff52f0ed74e800ef1d1de94529
+      internalID: -1584205931
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dasher_1
+      rect:
+        serializedVersion: 2
+        x: 170
+        y: 129
+        width: 24
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4753f73ce94e8924498de933792460c5
+      internalID: 1277092089
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dasher_2
+      rect:
+        serializedVersion: 2
+        x: 190
+        y: 109
+        width: 26
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7e448825e33e3e947a260ff7e85ea681
+      internalID: 1981657504
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dasher_3
+      rect:
+        serializedVersion: 2
+        x: 169
+        y: 95
+        width: 21
+        height: 34
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4be4d88271d6e1746984fece4717f0c9
+      internalID: -488443271
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dasher_4
+      rect:
+        serializedVersion: 2
+        x: 148
+        y: 100
+        width: 18
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 818328317faa0c4428b01ac38cc242d4
+      internalID: -1452904507
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dasher_5
+      rect:
+        serializedVersion: 2
+        x: 190
+        y: 92
+        width: 20
+        height: 13
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c7d49b081f6f2a44fb4ad05c0835e72e
+      internalID: -1573781778
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dasher_6
+      rect:
+        serializedVersion: 2
+        x: 217
+        y: 64
+        width: 23
+        height: 29
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7f60781e33b908548a3a3b468f109750
+      internalID: 734812488
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dasher_7
+      rect:
+        serializedVersion: 2
+        x: 218
+        y: 93
+        width: 32
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f57326724e13340409bc452d0c98f70f
+      internalID: -1565820961
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dasher_8
+      rect:
+        serializedVersion: 2
+        x: 156
+        y: 155
+        width: 33
+        height: 31
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 93bc27206b1744f469dde900a4120eb0
+      internalID: 1363423463
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dasher_9
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 152
+        width: 23
+        height: 19
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5ea78013bd1e2a44188033f06a6f7e19
+      internalID: 2044298417
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dasher_10
+      rect:
+        serializedVersion: 2
+        x: 125
+        y: 111
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d02608f4a6e0eb246aab25086dcea3f6
+      internalID: -598085349
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dasher_11
+      rect:
+        serializedVersion: 2
+        x: 178
+        y: 53
+        width: 37
+        height: 33
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e388d5e4af1a70e4096861294ab63138
+      internalID: -25480152
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dasher_12
+      rect:
+        serializedVersion: 2
+        x: 127
+        y: 61
+        width: 43
+        height: 35
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 556b88773d1c98946bb8bf2b638fe9e3
+      internalID: -248968566
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dasher_13
+      rect:
+        serializedVersion: 2
+        x: 113
+        y: 102
+        width: 32
+        height: 27
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c8d649f12b5685049a43391ddd2e85f1
+      internalID: 440898094
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dasher_14
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 192
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 03e6e12921f93924bba7eedde3ac9dff
+      internalID: -1716035853
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dasher_15
+      rect:
+        serializedVersion: 2
+        x: 133
+        y: 157
+        width: 5
+        height: 6
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 299f5b7060a73a942bfb6955feaf1fec
+      internalID: -925890407
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dasher_16
+      rect:
+        serializedVersion: 2
+        x: 126
+        y: 132
+        width: 20
+        height: 19
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 20b61e74f15c08b4a81dd351521d5506
+      internalID: -1850717590
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dasher_17
+      rect:
+        serializedVersion: 2
+        x: 147
+        y: 130
+        width: 22
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d35ad47443e7408488f262008799ca2e
+      internalID: -74829771
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemies_0
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 192
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cc581618e055e4b488e689dbf01050fe
+      internalID: -624996043
       vertices: []
       indices: 
       edges: []
@@ -210,10 +531,10 @@ TextureImporter:
       name: Enemies_1
       rect:
         serializedVersion: 2
-        x: 16
-        y: 48
-        width: 16
-        height: 16
+        x: 128
+        y: 192
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -221,8 +542,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 89acfd8bbbf766790800000000000000
-      internalID: -7537196482120660328
+      spriteID: 4f6b140d18df7784a8def7f2690632cd
+      internalID: -1149886791
       vertices: []
       indices: 
       edges: []
@@ -231,10 +552,10 @@ TextureImporter:
       name: Enemies_2
       rect:
         serializedVersion: 2
-        x: 32
-        y: 48
-        width: 16
-        height: 16
+        x: 192
+        y: 192
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -242,8 +563,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: eae2e888b400f04f0800000000000000
-      internalID: -860468679390908754
+      spriteID: b9c7a1ec3a456994ebba88718ef8ff3d
+      internalID: 1987304994
       vertices: []
       indices: 
       edges: []
@@ -252,10 +573,10 @@ TextureImporter:
       name: Enemies_3
       rect:
         serializedVersion: 2
-        x: 48
-        y: 48
-        width: 16
-        height: 16
+        x: 0
+        y: 128
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -263,8 +584,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ce9c46d5cbc7ab190800000000000000
-      internalID: -7945901444079236628
+      spriteID: b55f9c39498be504eb407ec509f1822a
+      internalID: 49424237
       vertices: []
       indices: 
       edges: []
@@ -273,10 +594,10 @@ TextureImporter:
       name: Enemies_4
       rect:
         serializedVersion: 2
-        x: 0
-        y: 32
-        width: 16
-        height: 16
+        x: 64
+        y: 128
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -284,8 +605,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a8515d6a968f02b80800000000000000
-      internalID: -8421458170528590454
+      spriteID: 1ad80b9756657cd4da2a8f7fe34297f0
+      internalID: -914128257
       vertices: []
       indices: 
       edges: []
@@ -294,10 +615,10 @@ TextureImporter:
       name: Enemies_5
       rect:
         serializedVersion: 2
-        x: 16
-        y: 32
-        width: 16
-        height: 16
+        x: 194
+        y: 130
+        width: 20
+        height: 25
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -305,8 +626,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 403d85e4b6c9310f0800000000000000
-      internalID: -1147401495359466748
+      spriteID: 7f8948b97ea3f764a856770773cbfe78
+      internalID: 5910985
       vertices: []
       indices: 
       edges: []
@@ -315,10 +636,10 @@ TextureImporter:
       name: Enemies_6
       rect:
         serializedVersion: 2
-        x: 32
-        y: 32
-        width: 16
-        height: 16
+        x: 192
+        y: 158
+        width: 18
+        height: 23
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -326,8 +647,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9edd06f65ab36c470800000000000000
-      internalID: 8414478535512612329
+      spriteID: 4ee24646047375e469490622e795a0b4
+      internalID: 231174740
       vertices: []
       indices: 
       edges: []
@@ -336,10 +657,10 @@ TextureImporter:
       name: Enemies_7
       rect:
         serializedVersion: 2
-        x: 48
-        y: 32
-        width: 16
-        height: 16
+        x: 209
+        y: 175
+        width: 22
+        height: 18
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -347,8 +668,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b2411e64b25da8330800000000000000
-      internalID: 3714015224569861163
+      spriteID: bb37d9bf5097246489e0fd95eb4cf925
+      internalID: -1809644644
       vertices: []
       indices: 
       edges: []
@@ -357,10 +678,10 @@ TextureImporter:
       name: Enemies_8
       rect:
         serializedVersion: 2
-        x: 0
-        y: 16
-        width: 16
-        height: 16
+        x: 216
+        y: 149
+        width: 20
+        height: 23
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -368,8 +689,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ea74ea1de65822390800000000000000
-      internalID: -7844560889915226194
+      spriteID: 98a6f68a0f2cfba4e8d1ddab2dc432c6
+      internalID: 1238001873
       vertices: []
       indices: 
       edges: []
@@ -378,10 +699,10 @@ TextureImporter:
       name: Enemies_9
       rect:
         serializedVersion: 2
-        x: 16
-        y: 16
-        width: 16
-        height: 16
+        x: 0
+        y: 64
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -389,8 +710,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3c88031598f0a0c30800000000000000
-      internalID: 4326287474489854147
+      spriteID: c09a5e4c14f7be04f9bcf7f297caf470
+      internalID: 177624983
       vertices: []
       indices: 
       edges: []
@@ -399,10 +720,10 @@ TextureImporter:
       name: Enemies_10
       rect:
         serializedVersion: 2
-        x: 48
+        x: 0
         y: 0
-        width: 16
-        height: 16
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -410,8 +731,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4394a4ffaeff35d60800000000000000
-      internalID: 7877921557971618100
+      spriteID: 3f260233a85a2364193432aff29bf6ad
+      internalID: -209787481
       vertices: []
       indices: 
       edges: []
@@ -420,157 +741,10 @@ TextureImporter:
       name: Enemies_11
       rect:
         serializedVersion: 2
-        x: 32
-        y: 16
-        width: 16
-        height: 16
-      alignment: 9
-      pivot: {x: 0.875, y: 0.875}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 57f892b281d797a40800000000000000
-      internalID: 5366457973745487733
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Enemies_12
-      rect:
-        serializedVersion: 2
-        x: 48
-        y: 16
-        width: 16
-        height: 16
-      alignment: 9
-      pivot: {x: 0.875, y: 0.125}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b55053d3241a0f700800000000000000
-      internalID: 572134458542851419
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Enemies_13
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 0
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 5f75b1cd9c8998150800000000000000
-      internalID: 5875395181630150645
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Enemies_14
-      rect:
-        serializedVersion: 2
-        x: 16
-        y: 0
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ca648f19d5f46b540800000000000000
-      internalID: 5023289697677887148
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Enemies_15
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 48
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: bc3914589e52bf410800000000000000
-      internalID: 1511843784806208459
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Enemies_16
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 32
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 55f68056303950d70800000000000000
-      internalID: 9008768272413781845
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Enemies_17
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 16
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ee414ae8daf4b8800800000000000000
-      internalID: 615673380907259118
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Enemies_18
-      rect:
-        serializedVersion: 2
         x: 64
         y: 0
-        width: 16
-        height: 16
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -578,8 +752,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1e6247c1b8c59f1f0800000000000000
-      internalID: -1010674888820381983
+      spriteID: 69fba0a41bded8e4081b6dfcc4444957
+      internalID: 356933835
       vertices: []
       indices: 
       edges: []
@@ -595,25 +769,36 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Enemies_2: -860468679390908754
-      Enemies_3: -7945901444079236628
-      Enemies_16: 9008768272413781845
-      Enemies_18: -1010674888820381983
-      Enemies_10: 7877921557971618100
-      Enemies_4: -8421458170528590454
-      Enemies_1: -7537196482120660328
-      Enemies_0: 2192450021786810173
-      Enemies_5: -1147401495359466748
-      Enemies_15: 1511843784806208459
-      Enemies_12: 572134458542851419
-      Enemies_9: 4326287474489854147
-      Enemies_11: 5366457973745487733
-      Enemies_6: 8414478535512612329
-      Enemies_17: 615673380907259118
-      Enemies_7: 3714015224569861163
-      Enemies_14: 5023289697677887148
-      Enemies_8: -7844560889915226194
-      Enemies_13: 5875395181630150645
+      Enemies_2: 1987304994
+      Enemies_3: 49424237
+      dasher_7: -1565820961
+      dasher_8: 1363423463
+      Enemies_10: -209787481
+      dasher_14: -1716035853
+      dasher_5: -1573781778
+      Enemies_4: -914128257
+      dasher_9: 2044298417
+      dasher_6: 734812488
+      dasher_12: -248968566
+      dasher_11: -25480152
+      dasher_1: 1277092089
+      dasher_16: -1850717590
+      Enemies_0: -624996043
+      dasher_10: -598085349
+      Enemies_5: 5910985
+      Enemies_1: -1149886791
+      Enemies_9: 177624983
+      Enemies_11: 356933835
+      dasher_13: 440898094
+      dasher_4: -1452904507
+      Enemies_6: 231174740
+      dasher_17: -74829771
+      dasher_15: -925890407
+      dasher_3: -488443271
+      dasher_2: 1981657504
+      Enemies_7: -1809644644
+      Enemies_8: 1238001873
+      dasher_0: -1584205931
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: GraviDashPerk
   m_EditorClassIdentifier: 
   _unlockableKey: GravidashPerk
-  Price: 15
+  Price: 10
   Perk: {fileID: 11400000, guid: 5d73e7048a99edb44a1caa6f4a4e5cd6, type: 2}

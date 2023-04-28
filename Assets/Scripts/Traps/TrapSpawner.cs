@@ -4,6 +4,12 @@ using UnityEngine;
 
 public class TrapSpawner : MonoBehaviour
 { 
+    [SerializeField] private int _difficultyPerLevel;
+
+    private float _delayMultyplicator = 1f;
+
+    [Range(0, 100)] private int _difficulty;
+
     [SerializeField] private DefaultTrapSpawner[] _spawners;
 
     [SerializeField] private WallMoveTrapSpawner _movingWallTrapSpawner;
@@ -16,8 +22,12 @@ public class TrapSpawner : MonoBehaviour
     {
         _targetPlayer = false;
 
+        Main.arenaManager.ArenaStopped.AddListener(AddDifficulty);
+
         StartCoroutine(SetUpNextTrap(3f));
     }
+
+    private void AddDifficulty() => _difficulty += _difficultyPerLevel;
 
     private void SetUpTrap()
     {
@@ -25,7 +35,7 @@ public class TrapSpawner : MonoBehaviour
         
         if (Random.Range(0f, 100f) < Main.enemyList.GetAmountOfEnemies() * _enemyWeightForMovingWallApearing)
         {
-            _movingWallTrapSpawner.Spawn(GetRandomPosition());
+            _movingWallTrapSpawner.Spawn(GetRandomPosition(), _difficulty);
             waitingTime = _movingWallTrapSpawner.GetDelayTime();
         }
         else
@@ -40,8 +50,8 @@ public class TrapSpawner : MonoBehaviour
 
                 if (currentAppearanceChance > Random.Range(0f, 100f))
                 {
-                    if (_targetPlayer == false) _spawners[randomIndex].Spawn(GetRandomPosition());
-                    else _spawners[randomIndex].Spawn(Main.playerTransform.position);
+                    if (_targetPlayer == false) _spawners[randomIndex].Spawn(GetRandomPosition(), _difficulty);
+                    else _spawners[randomIndex].Spawn(Main.playerTransform.position, _difficulty);
 
                     waitingTime = _spawners[randomIndex].GetDelayTime();
                     
@@ -50,7 +60,7 @@ public class TrapSpawner : MonoBehaviour
             }
         }
 
-        StartCoroutine(SetUpNextTrap(waitingTime));
+        StartCoroutine(SetUpNextTrap(waitingTime * _delayMultyplicator));
     }
 
     private IEnumerator SetUpNextTrap(float waitingTime)

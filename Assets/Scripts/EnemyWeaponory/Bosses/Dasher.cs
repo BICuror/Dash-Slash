@@ -4,6 +4,12 @@ using UnityEngine;
 
 public class Dasher : MonoBehaviour
 {
+    [SerializeField] private MoveBehaviour _moveTowardsPlayerBehaviour;
+
+    [SerializeField] private MoveBehaviour _moveToRandomPointBehaviour;
+
+    private MoveAgent _moveAgent;
+
     [SerializeField] private ShootingModule _shootingModule;
 
     [SerializeField] private DashingModule _dashModule;
@@ -34,7 +40,12 @@ public class Dasher : MonoBehaviour
     
     [SerializeField] private float _bulletExplotionBulletAmount;
 
-    private void Awake() => StartCoroutine(WaitToChooseNextAttack(2f));
+    private void Awake() 
+    {
+        _moveAgent = GetComponent<MoveAgent>();
+
+        StartCoroutine(WaitToChooseNextAttack(2f));
+    }
 
     private void DashTowardsPlayer()
     {
@@ -126,8 +137,12 @@ public class Dasher : MonoBehaviour
 
         if (Vector3.Distance(transform.position, Main.playerTransform.position) > _maxNonDashDistance)
         {
+            _moveAgent.SetMoveBehaviour(_moveTowardsPlayerBehaviour);
+
             DashTowardsPlayer(); return;
         }
+
+        _moveAgent.SetMoveBehaviour(_moveToRandomPointBehaviour);
 
         int rand = Random.Range(0, 2);
 

@@ -6388,14 +6388,15 @@ ParticleSystem:
     - sprite: {fileID: -1565820961, guid: ea885f72f128c264ab713e2bf944b8e8, type: 3}
     - sprite: {fileID: 1363423463, guid: ea885f72f128c264ab713e2bf944b8e8, type: 3}
     - sprite: {fileID: 2044298417, guid: ea885f72f128c264ab713e2bf944b8e8, type: 3}
-    - sprite: {fileID: -598085349, guid: ea885f72f128c264ab713e2bf944b8e8, type: 3}
+    - sprite: {fileID: -1850717590, guid: ea885f72f128c264ab713e2bf944b8e8, type: 3}
     - sprite: {fileID: -25480152, guid: ea885f72f128c264ab713e2bf944b8e8, type: 3}
     - sprite: {fileID: -248968566, guid: ea885f72f128c264ab713e2bf944b8e8, type: 3}
     - sprite: {fileID: 440898094, guid: ea885f72f128c264ab713e2bf944b8e8, type: 3}
-    - sprite: {fileID: -1716035853, guid: ea885f72f128c264ab713e2bf944b8e8, type: 3}
-    - sprite: {fileID: -925890407, guid: ea885f72f128c264ab713e2bf944b8e8, type: 3}
-    - sprite: {fileID: -1850717590, guid: ea885f72f128c264ab713e2bf944b8e8, type: 3}
     - sprite: {fileID: -74829771, guid: ea885f72f128c264ab713e2bf944b8e8, type: 3}
+    - sprite: {fileID: 5910985, guid: ea885f72f128c264ab713e2bf944b8e8, type: 3}
+    - sprite: {fileID: 231174740, guid: ea885f72f128c264ab713e2bf944b8e8, type: 3}
+    - sprite: {fileID: -1809644644, guid: ea885f72f128c264ab713e2bf944b8e8, type: 3}
+    - sprite: {fileID: 1238001873, guid: ea885f72f128c264ab713e2bf944b8e8, type: 3}
     flipU: 0
     flipV: 0
   VelocityModule:

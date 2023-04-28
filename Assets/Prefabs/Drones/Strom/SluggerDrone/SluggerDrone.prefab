@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 8327757334726750851}
   - component: {fileID: 8327757334726750854}
-  - component: {fileID: 8327757334726750849}
   - component: {fileID: 8327757334726750848}
   m_Layer: 0
   m_Name: SluggerDrone
@@ -47,27 +46,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _droneData: {fileID: 11400000, guid: 6339228a161055346bf79f0baf6b5790, type: 2}
-  restoringTime: 1.9
+  restoringTime: 1.4
   bullet: {fileID: 2669985471530180736, guid: 2af736510047f1543907b6f6cb937bb5, type: 3}
-  bulletSpeed: 18
-  damage: 45
-  shootingOffset: 0.7
---- !u!58 &8327757334726750849
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8327757334726750860}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.5
+  bulletSpeed: 25
+  damage: 55
+  shootingOffset: 0.6
 --- !u!212 &8327757334726750848
 SpriteRenderer:
   m_ObjectHideFlags: 0

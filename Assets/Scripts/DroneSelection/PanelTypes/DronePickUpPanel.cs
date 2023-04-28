@@ -8,16 +8,12 @@ public sealed class DronePickUpPanel : SelectionPanelWithPresentation
     [SerializeField] private TextMeshProUGUI _droneNameText;
     [SerializeField] private TextMeshProUGUI _droneDescritionText;
 
-    
-
     [Header("VisualLinks")]
     [SerializeField] private Image _presentationImage;
     [SerializeField] private Image _shineImage;
-    [SerializeField] private ParticleSystemRenderer _particleSystem;
-
+    [SerializeField] private Image _shineReplacment;
 
     private DroneBasis _drone;
-
 
     public void Setup(DroneBasis pickUpDrone)
     {
@@ -47,7 +43,7 @@ public sealed class DronePickUpPanel : SelectionPanelWithPresentation
     {
         _shineImage.material = Main.droneSelector.gameObject.GetComponent<UIMaterialFactory>().GetPanelMaterial(_drone.GetDroneData().Type, 0);
 
-        _particleSystem.material = Main.droneSelector.gameObject.GetComponent<UIMaterialFactory>().GetParticleMaterial(_drone.GetDroneData().Type);
+        _shineReplacment.material = Main.droneSelector.gameObject.GetComponent<UIMaterialFactory>().GetParticleMaterial(_drone.GetDroneData().Type);
     }
     
     private void PlaceDrone()

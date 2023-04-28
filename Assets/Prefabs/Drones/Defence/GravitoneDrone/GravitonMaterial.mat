@@ -47,5 +47,5 @@ Material:
     - TwirlScale: 19.2
     m_Colors:
     - AdditionalColor: {r: 0.25301194, g: 1, b: 0, a: 1}
-    - MainColor: {r: 0.24313724, g: 0.98039216, b: 0, a: 1}
+    - MainColor: {r: 0.24313727, g: 0.9803922, b: 0, a: 1}
   m_BuildTextureStacks: []

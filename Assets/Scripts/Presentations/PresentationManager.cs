@@ -43,13 +43,9 @@ public sealed class PresentationManager : MonoBehaviour
         
         _presentedDroneBasis = presentedDrone.GetComponent<DroneBasis>();
 
-        Debug.Log(_presentedDroneBasis.GetLevel().ToString());
-        
         _presentedDroneBasis.UpgradeToLevel(droneLevel);
         _presentedDroneBasis.SetEnemyList(_enemyList);
         _presentedDroneBasis.StartTask();
-
-        Debug.Log(_presentedDroneBasis.GetLevel().ToString());
     }
 
     private void InstantiateEnemies()

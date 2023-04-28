@@ -6,9 +6,9 @@ public sealed class WallTrapSpawner : DefaultTrapSpawner
 
     [SerializeField] private GameObject _upgradedWallTrap;
 
-    [SerializeField] private float _chanceToSpawnUpgradedTrap;
+    [Range(0f, 100f)] [SerializeField] private float _difficultyToSpawnUpgradedTrap;
 
-    public override void Spawn(Vector3 spawnPosition)
+    public override void Spawn(Vector3 spawnPosition, float difficulty)
     {
         float rotation = 0f;
 
@@ -23,7 +23,7 @@ public sealed class WallTrapSpawner : DefaultTrapSpawner
             else { spawnPosition.y = -Main.roomSettings.GetHeight(); rotation = 0f; }
         }
             
-        if (Random.Range(0f, 100f) > _chanceToSpawnUpgradedTrap) Instantiate(_regularWallTrap, spawnPosition, Quaternion.Euler(0f, 0f, rotation));
+        if (difficulty < _difficultyToSpawnUpgradedTrap) Instantiate(_regularWallTrap, spawnPosition, Quaternion.Euler(0f, 0f, rotation));
         else Instantiate(_upgradedWallTrap, spawnPosition, Quaternion.Euler(0f, 0f, rotation));
     }   
 }

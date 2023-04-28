@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: InfectionPerk
   m_EditorClassIdentifier: 
   _unlockableKey: InfectionPerk
-  Price: 20
+  Price: 15
   Perk: {fileID: 11400000, guid: 2bf2c06d576813c4db1285afeb8f9015, type: 2}

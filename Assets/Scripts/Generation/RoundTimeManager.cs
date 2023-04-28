@@ -6,7 +6,7 @@ public class RoundTimeManager : MonoBehaviour
 {
     [SerializeField] private float _roundTime;
 
-    private void Start() => Main.arenaManager.StopArena += StopTimer;
+    private void Start() => Main.arenaManager.ArenaStopped.AddListener(StopTimer);
 
     public void StartTimer() => StartCoroutine(CountdownTimer());
     

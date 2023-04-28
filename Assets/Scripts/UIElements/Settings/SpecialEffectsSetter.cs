@@ -1,34 +1,36 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class SpecialEffectsSetter : MonoBehaviour
 {
     [SerializeField] private GameObject _menuPostProcessing;
 
-    private bool _useSpecialEffects;
+    [SerializeField] private ToggleSettings _toggleSettings;
 
     private void Start()
     {
+        _toggleSettings.StateChanged.AddListener(SetPostprocessingState);
+
+        bool useSpecialEffects;
+
         if (PlayerPrefs.HasKey("UseSpecialEffects"))
         {   
-            _useSpecialEffects = (PlayerPrefs.GetInt("UseSpecialEffects") == 1);
-
-            _menuPostProcessing.SetActive(_useSpecialEffects);
+            useSpecialEffects = (PlayerPrefs.GetInt("UseSpecialEffects") == 1);
         }
         else
         {
             PlayerPrefs.SetInt("UseSpecialEffects", 1);
+
+            useSpecialEffects = true;
         }
+
+        _toggleSettings.SetState(useSpecialEffects);
     }
 
-    public void ChangeState()
+    private void SetPostprocessingState(bool state)
     {
-        _useSpecialEffects = !_useSpecialEffects;
+        _menuPostProcessing.SetActive(state);
 
-        if (_useSpecialEffects == true) PlayerPrefs.SetInt("UseSpecialEffects", 1);
+        if (state) PlayerPrefs.SetInt("UseSpecialEffects", 1);
         else PlayerPrefs.SetInt("UseSpecialEffects", 0);
-
-        _menuPostProcessing.SetActive(_useSpecialEffects);
     }
 }

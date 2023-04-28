@@ -16,10 +16,11 @@ public class EnemySelector : MonoBehaviour
 
     [SerializeField] private List<GameObject> hardEnemies;
 
+    [SerializeField] private List<GameObject> defaultEnemies;
 
     private void Start()
     {   
-        Main.arenaManager.StartArena += RandomizeEnemies;
+        Main.arenaManager.ArenaStarted.AddListener(RandomizeEnemies);
     }
 
     private int RandomizeEnemiesVariety()
@@ -41,9 +42,11 @@ public class EnemySelector : MonoBehaviour
 
         List<GameObject> enemies;
 
-        if (Main.arenaManager.GetCurrentWave() < 4) enemies = easyEnemies;
-        else if (Main.arenaManager.GetCurrentWave() < 8) enemies = mediumEnemies;
-        else enemies = hardEnemies;
+        if (Main.arenaManager.GetCurrentWave() < 4) enemies = new List<GameObject>(easyEnemies);
+        else if (Main.arenaManager.GetCurrentWave() < 8) enemies = new List<GameObject>(mediumEnemies);
+        else enemies = enemies = new List<GameObject>(hardEnemies);
+
+        enemies.Add(defaultEnemies[Random.Range(0, defaultEnemies.Count)]);
 
         List<GameObject> availableEnemies = new List<GameObject>(enemies);
 

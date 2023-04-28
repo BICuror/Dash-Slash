@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class ArenaManager : MonoBehaviour
 {
@@ -15,15 +16,17 @@ public class ArenaManager : MonoBehaviour
     [Range(0f, 100f)]
     [SerializeField] private float _chanceOfBossArena;
 
-
     private int currentWave;
 
     private bool arenaIsActive = false;
 
-    public delegate void EventHandler(); 
-    public event EventHandler StartArena;
+    private bool _isBossArena = false;
 
-    public event EventHandler StopArena;
+    public UnityEvent ArenaStarted;
+
+    public UnityEvent ArenaStopped;
+
+    public UnityEvent BossArenaStopped;
 
     private void Start()
     {
@@ -43,13 +46,13 @@ public class ArenaManager : MonoBehaviour
 
         currentWave++;
 
-        StartArena?.Invoke();
+        ArenaStarted.Invoke();
 
         Main.playerTransform.position = Vector3.zero;
 
         Main.droneContainer.StartTasks();
         
-        if (IsBossArena() != false)
+        if (IsBossArena() != true)
         {
             Main.s_roundTimeManager.StartTimer();
 
@@ -58,10 +61,14 @@ public class ArenaManager : MonoBehaviour
             Main.enemySpawner.StartSpawn(startingAmountOfEnemiesInGroups);
 
             Main.trapSpawner.StartArena();
+            
+            _isBossArena = false;
         }
         else
         {
             _bossSpawner.SpawnBoss();
+
+            _isBossArena = true;
         }
     }
 
@@ -69,9 +76,11 @@ public class ArenaManager : MonoBehaviour
 
     public void StopArenaBattle()
     {
+        if (_isBossArena) BossArenaStopped.Invoke();
+
         arenaIsActive = false;
 
-        StopArena?.Invoke();
+        ArenaStopped.Invoke();
 
         Main.droneContainer.StopTasks();
 

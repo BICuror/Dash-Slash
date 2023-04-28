@@ -68,7 +68,7 @@ public sealed class DroneContainer : MonoBehaviour
         {
             if (_obtainedDrones[i].GetDroneData() == droneData && _obtainedDrones[i].GetLevel() == level)
             {
-                Destroy(_obtainedDrones[i]);
+                Destroy(_obtainedDrones[i].gameObject);
              
                 _obtainedDrones.RemoveAt(i);
                 

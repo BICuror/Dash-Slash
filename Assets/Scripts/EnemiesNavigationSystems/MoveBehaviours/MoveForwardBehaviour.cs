@@ -4,5 +4,5 @@ using UnityEngine;
 
 public sealed class MoveForwardBehaviour : MoveBehaviour
 {
-    public override Vector3 GetPosition(Transform enemyTransform) => enemyTransform.right;
+    public override Vector3 GetPosition(Transform enemyTransform) => enemyTransform.right.normalized * 2 + enemyTransform.position;
 }
